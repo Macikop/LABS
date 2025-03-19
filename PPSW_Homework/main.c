@@ -1,28 +1,62 @@
-#define NULL '\0'
+#include <LPC21xx.H>
+
+#define MAX_TOKEN_NR 3 							//maksymalna dopuszczalna ilosc tokenów
+#define MAX_KEYWORD_STRING_LTH 10 	// maksymalna dlugosc komendy
+#define MAX_KEYWORD_NR 3
 
 enum CompResult { DIFFERENT, EQUAL };
-
 enum Result { OK, ERROR };
+enum KeywordCode { LD, ST, RST };
+enum TokenType { KEYWORD, NUMBER, STRING};
+
+unsigned char ucTokenNr;		//liczba tokenów w zdekodowanym komunikacie
+
+union TokenValue
+{
+enum KeywordCode eKeyword; 	// jezeli KEYWORD
+unsigned int uiNumber; 			// jezeli NUMBER
+char * pcString; 						// jezeli STRING
+};
+
+struct Token
+{
+enum TokenType eType; 			// KEYWORD, NUMBER, STRING
+union TokenValue uValue;		// enum, unsigned int, char*
+};
+
+struct Token asToken[MAX_TOKEN_NR];							// wypelniana przez DecodeMsg na podstawie cUartRxBuffer i asCommandList
+
+struct Keyword
+{
+	enum KeywordCode eCode;
+	char cString[MAX_KEYWORD_STRING_LTH + 1];
+};
+
+struct Keyword asKeywordList[MAX_KEYWORD_NR]=		// uzywana przez bStringToCommand
+{
+{RST,"reset"},
+{LD, "load" },
+{ST, "store"}
+};
 
 void CopyString(char pcSource[], char pcDestination[])
 {	
-	int iCharacterCounter;
+	unsigned int uiCharacterCounter;
 	
-	for(iCharacterCounter = 0; NULL != pcSource[iCharacterCounter]; iCharacterCounter++)
+	for(uiCharacterCounter = 0; '\0' != pcSource[uiCharacterCounter]; uiCharacterCounter++)
 	{
-		pcDestination[iCharacterCounter] = pcSource[iCharacterCounter];
+		pcDestination[uiCharacterCounter] = pcSource[uiCharacterCounter];
 	}
-	pcDestination[iCharacterCounter] = NULL;
-	//quick but potential buffer overflow
+	pcDestination[uiCharacterCounter] = '\0';
 }
 
 enum CompResult eCompareString(char pcStr1[], char pcStr2[])
 {
-	int iCharacterCounter;
+	unsigned int uiCharacterCounter;
 	
-	for(iCharacterCounter = 0; NULL != pcStr1[iCharacterCounter] || NULL != pcStr2[iCharacterCounter]; iCharacterCounter++)
+	for(uiCharacterCounter = 0; '\0' != pcStr1[uiCharacterCounter] || '\0' != pcStr2[uiCharacterCounter]; uiCharacterCounter++)
 	{
-		if (pcStr1[iCharacterCounter] != pcStr2[iCharacterCounter])
+		if (pcStr1[uiCharacterCounter] != pcStr2[uiCharacterCounter])
 		{
 			return DIFFERENT;
 		}
@@ -30,23 +64,23 @@ enum CompResult eCompareString(char pcStr1[], char pcStr2[])
 	return EQUAL;
 }
 
-void AppendString(char pcSourceStr[],char pcDestinationStr[])
+void AppendString(char pcSourceStr[], char pcDestinationStr[])
 {
-	int iPointerPosition;
+	unsigned int uiPointerPosition;
 	
-	for(iPointerPosition = 0; NULL != pcDestinationStr[iPointerPosition]; iPointerPosition++) {}
-	CopyString(pcSourceStr, pcDestinationStr+iPointerPosition);
+	for(uiPointerPosition = 0; '\0' != pcDestinationStr[uiPointerPosition]; uiPointerPosition++) {}
+	CopyString(pcSourceStr, pcDestinationStr+uiPointerPosition);
 }
 
-void ReplaceCharactersInString(char pcString[],char cOldChar,char cNewChar)
+void ReplaceCharactersInString(char pcString[], char cOldChar, char cNewChar)
 {
-	int iCharacterCounter;
+	unsigned int uiCharacterCounter;
 	
-	for(iCharacterCounter = 0; NULL != pcString[iCharacterCounter]; iCharacterCounter++)
+	for(uiCharacterCounter = 0; '\0' != pcString[uiCharacterCounter]; uiCharacterCounter++)
 	{
-		if(pcString[iCharacterCounter] == cOldChar)
+		if(pcString[uiCharacterCounter] == cOldChar)
 		{
-			pcString[iCharacterCounter] = cNewChar;
+			pcString[uiCharacterCounter] = cNewChar;
 		}
 	}
 }
@@ -55,7 +89,7 @@ void UIntToHexStr (unsigned int uiValue, char pcStr[])
 {
 	int iHexChar;
 	
-	pcStr[10] = NULL;
+	pcStr[10] = '\0';
 	pcStr[1] = 'x';
 	pcStr[0] = '0';
 	for(iHexChar = 4; 0 < iHexChar ; iHexChar--)
@@ -76,7 +110,7 @@ enum Result eHexStringToUInt(char pcStr[],unsigned int *puiValue)
 {
 	int iCounter;
 	
-	if(('0' == pcStr[0]) && ('x' == pcStr[1]) && (NULL != pcStr[2]))
+	if(('0' == pcStr[0]) && ('x' == pcStr[1]) && ('\0' != pcStr[2]))
 	{
 		for(iCounter = 2; pcStr[iCounter]; iCounter++)
 		{
@@ -113,25 +147,41 @@ void AppendUIntToString (unsigned int uiValue, char pcDestinationStr[])
 	AppendString(cHexStr, pcDestinationStr);
 }
 
+union TokenValue ucFindTokensInString (char *pcString)
+{
+	
+	
+	for(;;)
+	{
+		
+	}
+
+}
+
+
 int main()
 {
 	
 	char acArreyOne[50] = "Hej";
-	char acArreyTwo[4];
+	char acArreyTwo[4] = "Hejo";
 	enum CompResult eResoults;
 	char pcHex[32];
 	enum Result eDoesHex;
 	unsigned int iHex;
 	
 
-	CopyString(acArreyOne, acArreyTwo);
+	//CopyString(acArreyOne, acArreyTwo);
 	eResoults = eCompareString(acArreyOne, acArreyTwo);
-	AppendString(acArreyTwo, acArreyOne);
-	ReplaceCharactersInString(acArreyOne, 'e', 'w');
+	if(eResoults == EQUAL)
+	{
+		AppendString(acArreyTwo, acArreyOne);
+	}
+	
+	/*ReplaceCharactersInString(acArreyOne, 'e', 'w');
 	UIntToHexStr(0xFFFF, pcHex);
 	eDoesHex = eHexStringToUInt("0xAABCD", &iHex);
 	AppendUIntToString(iHex ,acArreyOne);
-	
+	*/
 	
 	return 0;
 }
