@@ -158,25 +158,23 @@ union TokenValue ucFindTokensInString (char *pcString)
 
 }
 
+char acArreyOne[10] = "Hej";
+char acArreyTwo[4];
+enum CompResult eResoults;
+char pcHex[32];
+enum Result eDoesHex;
+unsigned int iHex;
 
 int main()
 {
-	
-	char acArreyOne[50] = "Hej";
-	char acArreyTwo[4] = "Hejo";
-	enum CompResult eResoults;
-	char pcHex[32];
-	enum Result eDoesHex;
-	unsigned int iHex;
-	
-
-	//CopyString(acArreyOne, acArreyTwo);
+	CopyString(acArreyOne, acArreyTwo);
+	/*
 	eResoults = eCompareString(acArreyOne, acArreyTwo);
 	if(eResoults == EQUAL)
 	{
 		AppendString(acArreyTwo, acArreyOne);
 	}
-	
+	*/
 	/*ReplaceCharactersInString(acArreyOne, 'e', 'w');
 	UIntToHexStr(0xFFFF, pcHex);
 	eDoesHex = eHexStringToUInt("0xAABCD", &iHex);
