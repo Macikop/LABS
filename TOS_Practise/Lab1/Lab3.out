@@ -1,0 +1,128 @@
+
+**** 03/22/25 13:46:05 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab3
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+R1 4 0 39
+R2 5 0 18
+R3 2 1 72
+
+Vx 3 5 0
+
+V1 4 3 10
+I1 0 1 1.6
+
+H1 3 2  Vx 40
+
+.DC V1 10 10 1
+
+.PRINT DC V(H1) I(H1) W(H1) V(R2) I(R2) W(R2) V(0,2)
+.TF V(0,2) V1
+.END
+
+**** 03/22/25 13:46:05 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab3
+
+
+ ****     DC TRANSFER CURVES               TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+  V1          V(H1)       I(H1)       W(H1)       V(R2)       I(R2)       
+
+   1.000E+01   3.677E+01  -1.600E+00  -5.884E+01   1.655E+01   9.193E-01
+
+
+
+**** 03/22/25 13:46:05 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab3
+
+
+ ****     DC TRANSFER CURVES               TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+  V1          W(R2)       V(0,2)      
+
+   1.000E+01   1.521E+01   2.022E+01
+
+
+
+**** 03/22/25 13:46:05 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab3
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)   94.9750  (    2)  -20.2250  (    3)   16.5470  (    4)   26.5470      
+
+(    5)   16.5470  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    Vx           9.193E-01
+    V1          -6.807E-01
+
+    TOTAL POWER DISSIPATION   6.81E+00  WATTS
+
+
+
+
+
+
+ ****     SMALL-SIGNAL CHARACTERISTICS
+
+
+      V(0,2)/V1 = -3.860E-01
+
+      INPUT RESISTANCE AT V1 =  5.700E+01
+
+      OUTPUT RESISTANCE AT V(0,2) = -1.505E+01
+
+
+          JOB CONCLUDED
+
+**** 03/22/25 13:46:05 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab3
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .02
+

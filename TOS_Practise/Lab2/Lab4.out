@@ -1,0 +1,103 @@
+
+**** 03/22/25 17:25:24 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab4
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+V1 1 0 SIN(1 1 1kHz)
+
+R1 1 2 1k
+C1 2 0 159n
+
+.TRAN 0 10m 0 10n
+.FOUR 1kHz V(2)
+.PROBE
+.END
+
+**** 03/22/25 17:25:24 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab4
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    1.0000  (    2)    1.0000  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+
+    TOTAL POWER DISSIPATION   0.00E+00  WATTS
+
+
+**** 03/22/25 17:25:24 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab4
+
+
+ ****     FOURIER ANALYSIS                 TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+FOURIER COMPONENTS OF TRANSIENT RESPONSE V(2)
+
+
+
+ DC COMPONENT =   1.0000E+00
+
+ HARMONIC   FREQUENCY     FOURIER     NORMALIZED     PHASE     NORMALIZED
+    NO         (HZ)      COMPONENT     COMPONENT     (DEG)     PHASE (DEG)
+
+     1    1.0000E+03   7.0745E-01   1.0000E+00  -4.4974E+01   0.0000E+00
+     2    2.0000E+03   1.5428E-08   2.1808E-08  -3.4587E+01   5.5361E+01
+     3    3.0000E+03   3.3831E-08   4.7821E-08  -1.8490E+01   1.1643E+02
+     4    4.0000E+03   2.9873E-08   4.2226E-08  -1.0005E+02   7.9844E+01
+     5    5.0000E+03   3.2337E-08   4.5709E-08  -7.5993E+01   1.4888E+02
+     6    6.0000E+03   5.8626E-09   8.2869E-09   1.6367E+02   4.3352E+02
+     7    7.0000E+03   1.2594E-08   1.7802E-08  -5.7205E+01   2.5761E+02
+     8    8.0000E+03   3.0159E-08   4.2630E-08  -8.2100E+00   3.5158E+02
+     9    9.0000E+03   2.1008E-08   2.9695E-08  -4.6173E+01   3.5859E+02
+
+
+     TOTAL HARMONIC DISTORTION =   9.8588E-06 PERCENT
+
+
+          JOB CONCLUDED
+
+**** 03/22/25 17:25:24 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab4
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =       25.83
+

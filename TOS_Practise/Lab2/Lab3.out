@@ -1,0 +1,308 @@
+
+**** 03/22/25 17:02:59 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab3
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+.MODEL RT RES R=1 TC1=0.01
+.MODEL CT CAP C=1 TC1=-0.002
+
+V1 1 0 AC 1
+
+R1 1 2 RT 1k
+C1 2 0 CT 159n
+
+.AC DEC 10 1 1MEG
+.TEMP 0 40 80 120 
+.PROBE
+.END
+
+**** 03/22/25 17:02:59 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab3
+
+
+ ****     Resistor MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               RT              
+           R    1            
+         TC1     .01         
+
+
+**** 03/22/25 17:02:59 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab3
+
+
+ ****     Capacitor MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               CT              
+           C    1            
+         TC1   -2.000000E-03 
+
+
+**** 03/22/25 17:02:59 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab3
+
+
+ ****     TEMPERATURE-ADJUSTED VALUES      TEMPERATURE =    0.000 DEG C
+
+
+******************************************************************************
+
+
+
+
+ **** CAPACITORS
+
+                   C1 <CT>    
+
+          C        1.676E-07  
+
+
+
+ **** RESISTORS
+
+                   R1 <RT>    
+
+          R        7.300E+02  
+
+
+
+**** 03/22/25 17:02:59 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab3
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =    0.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2)    0.0000  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+
+    TOTAL POWER DISSIPATION   0.00E+00  WATTS
+
+
+**** 03/22/25 17:02:59 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab3
+
+
+ ****     TEMPERATURE-ADJUSTED VALUES      TEMPERATURE =   40.000 DEG C
+
+
+******************************************************************************
+
+
+
+
+ **** CAPACITORS
+
+                   C1 <CT>    
+
+          C        1.549E-07  
+
+
+
+ **** RESISTORS
+
+                   R1 <RT>    
+
+          R        1.130E+03  
+
+
+
+**** 03/22/25 17:02:59 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab3
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   40.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2)    0.0000  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+
+    TOTAL POWER DISSIPATION   0.00E+00  WATTS
+
+
+**** 03/22/25 17:02:59 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab3
+
+
+ ****     TEMPERATURE-ADJUSTED VALUES      TEMPERATURE =   80.000 DEG C
+
+
+******************************************************************************
+
+
+
+
+ **** CAPACITORS
+
+                   C1 <CT>    
+
+          C        1.421E-07  
+
+
+
+ **** RESISTORS
+
+                   R1 <RT>    
+
+          R        1.530E+03  
+
+
+
+**** 03/22/25 17:02:59 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab3
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   80.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2)    0.0000  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+
+    TOTAL POWER DISSIPATION   0.00E+00  WATTS
+
+
+**** 03/22/25 17:02:59 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab3
+
+
+ ****     TEMPERATURE-ADJUSTED VALUES      TEMPERATURE =  120.000 DEG C
+
+
+******************************************************************************
+
+
+
+
+ **** CAPACITORS
+
+                   C1 <CT>    
+
+          C        1.294E-07  
+
+
+
+ **** RESISTORS
+
+                   R1 <RT>    
+
+          R        1.930E+03  
+
+
+
+**** 03/22/25 17:02:59 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab3
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =  120.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2)    0.0000  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+
+    TOTAL POWER DISSIPATION   0.00E+00  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 03/22/25 17:02:59 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab3
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .02
+

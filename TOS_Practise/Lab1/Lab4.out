@@ -1,0 +1,210 @@
+
+**** 03/22/25 14:10:46 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab4
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+R1 3 0 5
+R2 1 0 5
+
+L1 5 2 0.159
+C1 4 2 1.59M
+
+V1 2 3 AC 20
+V2 1 4 AC 10 -90
+V3 1 5 AC 10 90
+I1 0 1 AC 5
+
+.AC LIN 1 10 10
+.PRINT AC VR(L1) VI(L1) VR(C1) VI(C1) VM(2,3) VP(2,3)
+.END
+
+**** 03/22/25 14:10:46 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab4
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2)    0.0000  (    3)    0.0000  (    4)    0.0000      
+
+(    5)    0.0000  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    V2           0.000E+00
+    V3           0.000E+00
+
+    TOTAL POWER DISSIPATION   0.00E+00  WATTS
+
+
+**** 03/22/25 14:10:46 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab4
+
+
+ ****     AC ANALYSIS                      TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+  FREQ        VR(L1)      VI(L1)      VR(C1)      VI(C1)      VM(2,3)     
+
+
+   1.000E+01   2.500E+01  -9.951E+00   2.500E+01   1.005E+01   2.000E+01
+
+**** 03/22/25 14:10:46 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab4
+
+
+ ****     AC ANALYSIS                      TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+  FREQ        VP(2,3)     
+
+
+   1.000E+01   2.823E-15
+
+
+          JOB CONCLUDED
+
+**** 03/22/25 14:10:46 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab4
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .02
+
+**** 03/22/25 14:10:46 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab4
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+R1 3 0 5
+R2 1 0 5
+
+L1 5 6 0.159
+RL 2 6 1N
+C1 4 2 1.59M
+
+V1 2 3 AC 20
+V2 1 4 AC 10 -90
+V3 1 5 AC 10 90
+I1 0 1 AC 5
+
+VX 2 4 0
+
+.AC LIN 1 10 10
+.PRINT AC IM(VX) IP(VX)
+.END
+
+**** 03/22/25 14:10:46 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab4
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2)    0.0000  (    3)    0.0000  (    4)    0.0000      
+
+(    5)    0.0000  (    6)    0.0000  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    V2           0.000E+00
+    V3           0.000E+00
+    VX           0.000E+00
+
+    TOTAL POWER DISSIPATION   0.00E+00  WATTS
+
+
+**** 03/22/25 14:10:46 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab4
+
+
+ ****     AC ANALYSIS                      TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+  FREQ        IM(VX)      IP(VX)      
+
+
+   1.000E+01   2.694E+00  -1.582E+02
+
+
+          JOB CONCLUDED
+
+**** 03/22/25 14:10:46 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab4
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =        0.00
+

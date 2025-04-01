@@ -1,0 +1,100 @@
+
+**** 03/22/25 18:58:35 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab8
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+.MODEL VSW VSWITCH RON=1m ROFF=1G VOFF=0 VON=1
+.MODEL VSWn VSWITCH RON=1m ROFF=1G VOFF=1 VON=0
+
+VT 6 0 PULSE(0 1 0.5m)
+RT 6 0 10
+
+C1 1 0 100n
+R1 2 1 10
+S1 2 4 6 0 VSW
+L1 4 0 1m
+S2 3 4 6 0 VSWn
+R2 5 3 2k
+V1 5 0 2
+
+.TRAN 0 2m 0 10n
+.PROBE
+.END
+
+**** 03/22/25 18:58:35 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab8
+
+
+ ****     Voltage Controlled Switch MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               VSW             VSWn            
+         RON    1.000000E-03    1.000000E-03 
+        ROFF    1.000000E+09    1.000000E+09 
+         VON    1               0            
+        VOFF    0               1            
+
+
+**** 03/22/25 18:58:35 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab8
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2)    0.0000  (    3) 1.000E-06  (    4)    0.0000      
+
+(    5)    2.0000  (    6)    0.0000  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    VT           0.000E+00
+    V1          -1.000E-03
+
+    TOTAL POWER DISSIPATION   2.00E-03  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 03/22/25 18:58:35 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab8
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =        1.75
+

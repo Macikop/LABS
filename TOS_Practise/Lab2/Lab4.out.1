@@ -1,0 +1,26 @@
+
+**** 03/22/25 17:25:17 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab4
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+V1 1 0 SIN(1 1 1kHz)
+
+R1 1 2 1k
+C1 2 0 159n
+
+.TRAN 0 10m 0 10n
+.FOUR 1kHz
+----------$
+ERROR(ORPSIM-16478): Missing output variable
+.PROBE
+.END
+

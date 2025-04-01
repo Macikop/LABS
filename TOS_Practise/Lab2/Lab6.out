@@ -1,0 +1,82 @@
+
+**** 03/22/25 17:47:58 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab6
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+V1 9 0 AC 200
+RTR 9 1 1P
+
+L1 1 0 0.239
+L2 2 0 0.159
+KTR L1 L2 1
+
+R1 3 2 0.333
+C1 4 3 0.477
+
+L3 4 0 0.08
+R2 4 0 1
+
+R3 5 4 1
+L4 6 5 0.159
+C2 6 0 0.08
+
+.AC DEC 100 0.1 10
+.PROBE
+.END
+
+**** 03/22/25 17:47:58 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab6
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2)    0.0000  (    3)    0.0000  (    4)    0.0000      
+
+(    5)    0.0000  (    6)    0.0000  (    9)    0.0000  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1          -1.103E-24
+
+    TOTAL POWER DISSIPATION   0.00E+00  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 03/22/25 17:47:58 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab6
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =        0.00
+

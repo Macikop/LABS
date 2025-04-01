@@ -1,0 +1,11 @@
+Lab5
+
+V1 1 0 PULSE(0 1 0 0 0 1m)
+
+R1 1 2 1k
+C1 2 0 159n
+
+.TRAN 0 10m 0 10n
+.FOUR 1kHz V(2)
+.PROBE
+.END

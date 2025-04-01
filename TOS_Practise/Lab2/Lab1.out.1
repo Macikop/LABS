@@ -1,0 +1,28 @@
+
+**** 03/22/25 16:21:29 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab1
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+R1 1 2 1k
+C1 2 0 159n
+
+.AC DEC 100 1 1MEG
+
+.PROBE
+.END
+
+ERROR(ORPSIM-15141): Less than 2 connections at node 1.
+
+ERROR(ORPSIM-15142): Node 1 is floating
+
+ERROR(ORPSIM-15142): Node 2 is floating
+

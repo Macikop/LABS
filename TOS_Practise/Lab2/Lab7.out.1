@@ -1,0 +1,31 @@
+
+**** 03/22/25 18:10:00 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab7
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+.MODEL VSW VSWITCH RON=1m ROFF=1G VOFF=0 VON=1
+
+VT 4 0 PULSE(0 1 1m)
+RT 4 0 10
+
+C1 1 0 1u IC=5
+R1 2 1 20
+
+S1 3 2 4 0 VSWITCH
+L1 3 0 10m
+
+.TRAN 0 100m 0 100n
+.PROBE
+.END
+
+ERROR(ORPSIM-15113): Model VSWITCH used by S1 is undefined
+
