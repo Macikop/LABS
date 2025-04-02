@@ -87,45 +87,45 @@ void ReplaceCharactersInString(char pcString[], char cOldChar, char cNewChar)
 
 void UIntToHexStr (unsigned int uiValue, char pcStr[])
 {
-	unsigned char ucHexChar;
+	unsigned char ucHexCounter;
 	
 	pcStr[10] = '\0';
 	pcStr[1] = 'x';
 	pcStr[0] = '0';
-	for(ucHexChar = 4; 0 < ucHexChar ; ucHexChar--)
+	for(ucHexCounter = 4; 0 < ucHexCounter ; ucHexCounter--)
 	{
-		pcStr[6 - ucHexChar] = ((uiValue & (0xF << ((ucHexChar - 1) * 4))) >> ((ucHexChar - 1) * 4));
-		if(9 >= pcStr[6 - ucHexChar])
+		pcStr[6 - ucHexCounter] = ((uiValue & (0xF << ((ucHexCounter - 1) * 4))) >> ((ucHexCounter - 1) * 4));
+		if(9 >= pcStr[6 - ucHexCounter])
 		{
-			 pcStr[6 - ucHexChar] = pcStr[6 - ucHexChar] + 48;
+			 pcStr[6 - ucHexCounter] = pcStr[6 - ucHexCounter] + 48;
 		}
 		else
 		{
-			pcStr[6 - ucHexChar] = pcStr[6 - ucHexChar] + 55;
+			pcStr[6 - ucHexCounter] = pcStr[6 - ucHexCounter] + 55;
 		}
 	}
 }
 
 enum Result eHexStringToUInt(char pcStr[],unsigned int *puiValue)
 {
-	unsigned char ucCounter;
+	unsigned char ucCharacterCounter;
 	
 	if(('0' == pcStr[0]) && ('x' == pcStr[1]) && ('\0' != pcStr[2]))
 	{
-		for(ucCounter = 2; pcStr[ucCounter]; ucCounter++)
+		for(ucCharacterCounter = 2; pcStr[ucCharacterCounter]; ucCharacterCounter++)
 		{
-			if(('A' <= pcStr[ucCounter]) && ('F' >= pcStr[ucCounter]))
+			if(('A' <= pcStr[ucCharacterCounter]) && ('F' >= pcStr[ucCharacterCounter]))
 			{
-				*puiValue = (*puiValue * 16) + (pcStr[ucCounter] - 55);
+				*puiValue = (*puiValue * 16) + (pcStr[ucCharacterCounter] - 55);
 			}
-			else if(('0' <= pcStr[ucCounter]) && ('9' >= pcStr[ucCounter]))
+			else if(('0' <= pcStr[ucCharacterCounter]) && ('9' >= pcStr[ucCharacterCounter]))
 			{
-				*puiValue = (*puiValue * 16) + (pcStr[ucCounter] - 48);
+				*puiValue = (*puiValue * 16) + (pcStr[ucCharacterCounter] - 48);
 			}
 			else
 				return ERROR;
 		}
-		if(ucCounter > 6)
+		if(ucCharacterCounter > 6)
 		{
 			return ERROR;
 		}
