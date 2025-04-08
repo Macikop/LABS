@@ -402,16 +402,6 @@
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
             </File>
-            <File>
-              <FileName>led.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\led.c</FilePath>
-            </File>
-            <File>
-              <FileName>keyboard.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\keyboard.c</FilePath>
-            </File>
           </Files>
         </Group>
       </Groups>

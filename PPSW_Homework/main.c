@@ -87,52 +87,56 @@ void ReplaceCharactersInString(char pcString[], char cOldChar, char cNewChar)
 
 void UIntToHexStr (unsigned int uiValue, char pcStr[])
 {
-	unsigned char ucHexCounter;
+	unsigned char ucNibbleCounter;
+	unsigned char ucCurrentNibble;
 	
-	pcStr[10] = '\0';
-	pcStr[1] = 'x';
 	pcStr[0] = '0';
-	for(ucHexCounter = 4; 0 < ucHexCounter ; ucHexCounter--)
+	pcStr[1] = 'x';
+	pcStr[6] = '\0';
+	
+	for(ucNibbleCounter = 0; 4 > ucNibbleCounter ; ucNibbleCounter++)
 	{
-		pcStr[6 - ucHexCounter] = ((uiValue & (0xF << ((ucHexCounter - 1) * 4))) >> ((ucHexCounter - 1) * 4));
-		if(9 >= pcStr[6 - ucHexCounter])
+		ucCurrentNibble = ((uiValue >> ((ucNibbleCounter) * 4)) & 0xF);
+		
+		if(10 > ucCurrentNibble)
 		{
-			 pcStr[6 - ucHexCounter] = pcStr[6 - ucHexCounter] + 48;
+			 pcStr[5 - ucNibbleCounter] = ucCurrentNibble + '0';
 		}
 		else
 		{
-			pcStr[6 - ucHexCounter] = pcStr[6 - ucHexCounter] + 55;
+			pcStr[5 - ucNibbleCounter] = ucCurrentNibble - 10 + 'A';
 		}
 	}
 }
 
-enum Result eHexStringToUInt(char pcStr[],unsigned int *puiValue)
+enum Result eHexStringToUInt(char pcStr[], unsigned int *puiValue)
 {
 	unsigned char ucCharacterCounter;
+	char cCurrentCharacter;
+	
+	*puiValue = 0;
 	
 	if(('0' == pcStr[0]) && ('x' == pcStr[1]) && ('\0' != pcStr[2]))
 	{
-		for(ucCharacterCounter = 2; pcStr[ucCharacterCounter]; ucCharacterCounter++)
+		for(ucCharacterCounter = 2; 6 >= ucCharacterCounter; ucCharacterCounter++)
 		{
-			if(('A' <= pcStr[ucCharacterCounter]) && ('F' >= pcStr[ucCharacterCounter]))
+			cCurrentCharacter =  pcStr[ucCharacterCounter];
+			if(('A' <= cCurrentCharacter) && ('F' >= cCurrentCharacter))
 			{
-				*puiValue = (*puiValue * 16) + (pcStr[ucCharacterCounter] - 55);
+				*puiValue = (*puiValue << 4) + (cCurrentCharacter - 'A' + 10);
 			}
-			else if(('0' <= pcStr[ucCharacterCounter]) && ('9' >= pcStr[ucCharacterCounter]))
+			else if(('0' <= cCurrentCharacter) && ('9' >= cCurrentCharacter))
 			{
-				*puiValue = (*puiValue * 16) + (pcStr[ucCharacterCounter] - 48);
+				*puiValue = (*puiValue << 4) + (cCurrentCharacter - '0');
+			}
+			else if('\0' == cCurrentCharacter)
+			{
+				return OK;
 			}
 			else
 				return ERROR;
 		}
-		if(ucCharacterCounter > 6)
-		{
-			return ERROR;
-		}
-		else
-		{
-			return OK;
-		}
+		return ERROR;
 	}
 	else
 	{
@@ -145,7 +149,7 @@ void AppendUIntToString (unsigned int uiValue, char pcDestinationStr[])
 	unsigned char ucCharacterCounter;
 	
 	for(ucCharacterCounter = 0; '\0' != pcDestinationStr[ucCharacterCounter]; ucCharacterCounter++) {}
-	UIntToHexStr(uiValue, pcDestinationStr+ucCharacterCounter);
+	UIntToHexStr(uiValue, pcDestinationStr + ucCharacterCounter);
 }
 
 unsigned char ucFindTokensInString(char *pcString)
@@ -233,11 +237,11 @@ void DecodeMsg(char *pcString)
 	DecodeTokens();
 }
 
-char acArreyOne[50] = "Hej ale ja oo ro te";
+char acArreyOne[50] = "Hej\0abs";
 char acArreyTwo[4];
 enum CompResult eResoults;
 char pcHex[32];
-enum Result eDoesHex;
+enum Result eHexResoult;
 unsigned int iHex;
 
 int main()
@@ -250,9 +254,16 @@ int main()
 		AppendString(acArreyTwo, acArreyOne);
 	}
 	*/
-	/*ReplaceCharactersInString(acArreyOne, 'e', 'w');
-	UIntToHexStr(0xFFFF, pcHex);*/
-	eDoesHex = eHexStringToUInt("0xAABCD", &iHex);
+	/*ReplaceCharactersInString(acArreyOne, 'e', 'w');*/
+	UIntToHexStr(0xAB3D, pcHex);
+	
+	eHexResoult = eHexStringToUInt("", &iHex);
+	eHexResoult = eHexStringToUInt("0x", &iHex);
+	eHexResoult = eHexStringToUInt("0xhej", &iHex);
+	eHexResoult = eHexStringToUInt("23E1", &iHex);
+	eHexResoult = eHexStringToUInt("0xAABCD", &iHex);
+	eHexResoult = eHexStringToUInt("0x12FC", &iHex);
+	
 	AppendUIntToString(iHex ,acArreyOne);
 	
 	
