@@ -5,11 +5,14 @@
 #define LED1_bm 0x00020000
 #define LED2_bm 0x00040000
 #define LED3_bm 0x00080000
-#define S1_bm 0x000000100 
+#define S1_bm 0x10
+#define S2_bm 0x20
+#define S3_bm 0x40
+
+enum KeyboardState {RELASED, BUTTON_0, BUTTON_1, BUTTON_2, BUTTON_3};
 
 //7499998 ~ 1s bez int iLoopCycles
 //11996 ~ 1ms z int iLoopCycles
-
 void Delay(int iTime)
 {
 	unsigned int uiCycle;
@@ -24,32 +27,53 @@ void LedInit()
 	IO1SET = LED0_bm;
 }
 
+void KeyboardInit()
+{
+	IO0DIR = IO1DIR | S1_bm | S2_bm | S3_bm;
+}
+
 void LedOn(unsigned char ucLedIndeks)
 {
 	IO1CLR = 0xF0000;
 	IO1SET = (1 << (ucLedIndeks + 16));
 }
 
-char ReadButton1()
+enum KeyboardState eKeyboardRead()
 {
-	if (!IO0PIN & S1_bm)
+	switch (IO0PIN & S1_bm)
 	{
-		return 1;
-	}
-	else
-	{
-		return 0;
+		case 0x10:
+		{
+			return BUTTON_0;
+		}
+		case 0x20:
+		{
+			return BUTTON_1;
+		}
+		case 0x40:
+		{
+			return BUTTON_2;
+		}
+		case 0x80:
+		{
+			return BUTTON_3;
+		}
+		default:
+		{
+			return RELASED;
+		}
 	}
 }
 
 int main()
 {
 	LedInit();
+	KeyboardInit();
 	
 	while(1)
 	{	
 		unsigned char ucLedPosition;
-		ReadButton1();
+		LedOn(eKeyboardRead());
 		/*
 		IO1SET = LED0_bm;
 		Delay(250);
@@ -64,10 +88,11 @@ int main()
 		Delay(250);
 		IO1CLR = LED3_bm;
 		*/
+		/*
 		for (ucLedPosition = 0; 4 > ucLedPosition; ucLedPosition++)
 		{
 			LedOn(ucLedPosition);
 			Delay(250);
-		}
+		}*/
 	}
 }
