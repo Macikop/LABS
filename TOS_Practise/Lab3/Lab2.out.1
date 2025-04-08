@@ -1,0 +1,143 @@
+
+**** 04/06/25 14:45:10 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB1
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+.LIB "EVAL.LIB"
+
+V1 1 0 DC 10 AC 0.1 
+R/1 1 2 1K
+D1 2 0 D1N4148
+
+
+
+.SENS V(2)
+.AC LIN 1 1KHZ 1KHZ
+.PRINT AC V(2) I(D1)
+.END
+
+**** 04/06/25 14:45:10 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB1
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D1N4148         
+          IS    2.682000E-09 
+           N    1.836        
+         ISR    1.565000E-09 
+         IKF     .04417      
+          BV  100            
+         IBV  100.000000E-06 
+          RS     .5664       
+          TT   11.540000E-09 
+         CJO    4.000000E-12 
+          VJ     .5          
+           M     .3333       
+
+
+**** 04/06/25 14:45:10 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB1
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)   10.0000  (    2)     .7184  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1          -9.282E-03
+
+    TOTAL POWER DISSIPATION   9.28E-02  WATTS
+
+
+**** 04/06/25 14:45:10 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB1
+
+
+ ****     DC SENSITIVITY ANALYSIS          TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+DC SENSITIVITIES OF OUTPUT V(2)
+
+         ELEMENT         ELEMENT         ELEMENT       NORMALIZED
+          NAME            VALUE       SENSITIVITY     SENSITIVITY
+                                      (VOLTS/UNIT) (VOLTS/PERCENT)
+
+          R/1           1.000E+03      -5.624E-05      -5.624E-04
+          V1            1.000E+01       6.059E-03       6.059E-04
+D1
+SERIES RESISTANCE
+          RS            5.664E-01       9.225E-03       5.225E-05
+INTRINSIC PARAMETERS
+          IS            2.682E-09      -1.827E+07      -4.901E-04
+          N             1.836E+00       4.009E-01       7.360E-03
+
+**** 04/06/25 14:45:10 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB1
+
+
+ ****     AC ANALYSIS                      TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+  FREQ        V(2)        I(D1)       
+
+
+   1.000E+03   6.059E-04   9.939E-05
+
+
+          JOB CONCLUDED
+
+**** 04/06/25 14:45:10 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB1
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =        0.00
+

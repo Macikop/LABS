@@ -1,0 +1,850 @@
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+.LIB "EVAL_TOS.LIB"
+
+.PARAM CAP = 500U
+
+V1 9 0 SIN(0 84.85 60)
+RV 9 1 1N
+
+XTRAFO 1 0 2 3 TX_II
+
+D1 2 4 D1N4148
+D2 0 3 D1N4148
+D3 3 4 D1N4148
+D4 0 2 D1N4148
+
+C1 4 0 {CAP}
+R1 4 5 200
+XZ 0 5 ZENER_II
+RL 5 0 1K
+
+.STEP LIN PARAM CAP 500U 5M 200U 
+
+.TRAN 0 1 500M 1M
+.PROBE
+
+.END
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D1N4148         XZ.mA_DIODA     
+          IS    2.682000E-09  100.000000E-12 
+           N    1.836           1.7          
+         ISR    1.565000E-09                 
+         IKF     .04417                      
+          BV  100                            
+         IBV  100.000000E-06                 
+          RS     .5664                       
+          TT   11.540000E-09                 
+         CJO    4.000000E-12                 
+          VJ     .5                          
+           M     .3333                       
+
+
+               XZ.idealna_DIODA 
+          IS  100.000000E-12 
+           N     .01         
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =  500.0000E-06
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =  700.0000E-06
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =  900.0000E-06
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =    1.1000E-03
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =    1.3000E-03
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =    1.5000E-03
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =    1.7000E-03
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =    1.9000E-03
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =    2.1000E-03
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =    2.3000E-03
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =    2.5000E-03
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =    2.7000E-03
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =    2.9000E-03
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =    3.1000E-03
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =    3.3000E-03
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =    3.5000E-03
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =    3.7000E-03
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =    3.9000E-03
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =    4.1000E-03
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =    4.3000E-03
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =    4.5000E-03
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =    4.7000E-03
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =    4.9000E-03
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2) 53.34E-09  (    3) 53.34E-09  (    4) 106.7E-09      
+
+(    5) 106.7E-09  (    9)    0.0000  (XZ.Z3)    6.7000  (XZ.Z4)-2.134E-09  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+    XZ.VZ       -1.067E-10
+
+    TOTAL POWER DISSIPATION   7.15E-10  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 04/06/25 23:11:08 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2
+
+
+ ****     JOB STATISTICS SUMMARY
+
+ ****     CURRENT STEP                     PARAM CAP =    4.9000E-03
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =        1.48
+

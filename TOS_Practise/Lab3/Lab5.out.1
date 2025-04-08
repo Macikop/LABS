@@ -1,0 +1,73 @@
+
+**** 04/06/25 21:38:15 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB5
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+.LIB "EVAL.LIB"
+
+.MODEL INZ1 D IS=100 N=0.01
+.MODEL INZ2 D IS=100 N=1.679
+
+.SUBCKT ZENER ANODE CATODE
+
+        RZ ANODE 1 20
+        VZ 2 1 6.7
+        D1 CATODE 2 INZ1
+        D2 ANODE CATODE INZ2
+
+.ENDS
+
+
+V1 1 0 10
+R1 1 2 1k
+XZ 0 2 ZENER
+RL 2 0 1K
+
+.DC LIN V1 9 11 0.1
+.PROBE
+.END 
+
+**** 04/06/25 21:38:15 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB5
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               INZ1            INZ2            
+          IS  100             100            
+           N     .01            1.679        
+
+
+
+          JOB CONCLUDED
+
+**** 04/06/25 21:38:15 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB5
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =        0.00
+

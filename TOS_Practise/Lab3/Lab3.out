@@ -1,0 +1,802 @@
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+.LIB "EVAL.LIB"
+
+.PARAM OFFSET = 0
+
+V1 1 0 SIN({OFFSET} 10 1) 
+D1 1 2 D1N4148
+R1 2 0 1K
+c1 2 0 39m
+
+.STEP LIN PARAM OFFSET 9 10 0.1
+.TRAN 0 2 0 1M
+.FOUR 1 V(2)
+.PROBE
+
+.END
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D1N4148         
+          IS    2.682000E-09 
+           N    1.836        
+         ISR    1.565000E-09 
+         IKF     .04417      
+          BV  100            
+         IBV  100.000000E-06 
+          RS     .5664       
+          TT   11.540000E-09 
+         CJO    4.000000E-12 
+          VJ     .5          
+           M     .3333       
+
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM OFFSET =    9     
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    9.0000  (    2)    8.2880  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1          -8.288E-03
+
+    TOTAL POWER DISSIPATION   7.46E-02  WATTS
+
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     FOURIER ANALYSIS                 TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM OFFSET =    9     
+
+
+******************************************************************************
+
+
+
+FOURIER COMPONENTS OF TRANSIENT RESPONSE V(2)
+
+
+
+ DC COMPONENT =   1.7808E+01
+
+ HARMONIC   FREQUENCY     FOURIER     NORMALIZED     PHASE     NORMALIZED
+    NO         (HZ)      COMPONENT     COMPONENT     (DEG)     PHASE (DEG)
+
+     1    1.0000E+00   1.5903E-01   1.0000E+00  -8.9480E+01   0.0000E+00
+     2    2.0000E+00   8.5779E-02   5.3938E-01  -1.6902E+02   9.9368E+00
+     3    3.0000E+00   5.1811E-02   3.2579E-01   1.1357E+02   3.8201E+02
+     4    4.0000E+00   3.1864E-02   2.0036E-01   2.6901E+01   3.8482E+02
+     5    5.0000E+00   2.4955E-02   1.5692E-01  -6.6020E+01   3.8138E+02
+     6    6.0000E+00   2.2232E-02   1.3980E-01  -1.4727E+02   3.8961E+02
+     7    7.0000E+00   1.6975E-02   1.0674E-01   1.3891E+02   7.6527E+02
+     8    8.0000E+00   1.0619E-02   6.6772E-02   5.8122E+01   7.7396E+02
+     9    9.0000E+00   7.6350E-03   4.8010E-02  -4.0052E+01   7.6527E+02
+
+
+     TOTAL HARMONIC DISTORTION =   7.0678E+01 PERCENT
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM OFFSET =    9.1   
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    9.1000  (    2)    8.3873  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1          -8.387E-03
+
+    TOTAL POWER DISSIPATION   7.63E-02  WATTS
+
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     FOURIER ANALYSIS                 TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM OFFSET =    9.1   
+
+
+******************************************************************************
+
+
+
+FOURIER COMPONENTS OF TRANSIENT RESPONSE V(2)
+
+
+
+ DC COMPONENT =   1.7907E+01
+
+ HARMONIC   FREQUENCY     FOURIER     NORMALIZED     PHASE     NORMALIZED
+    NO         (HZ)      COMPONENT     COMPONENT     (DEG)     PHASE (DEG)
+
+     1    1.0000E+00   1.5975E-01   1.0000E+00  -8.9411E+01   0.0000E+00
+     2    2.0000E+00   8.6098E-02   5.3894E-01  -1.6898E+02   9.8426E+00
+     3    3.0000E+00   5.2027E-02   3.2567E-01   1.1358E+02   3.8181E+02
+     4    4.0000E+00   3.2033E-02   2.0051E-01   2.6963E+01   3.8461E+02
+     5    5.0000E+00   2.5063E-02   1.5688E-01  -6.5859E+01   3.8120E+02
+     6    6.0000E+00   2.2297E-02   1.3957E-01  -1.4713E+02   3.8933E+02
+     7    7.0000E+00   1.7027E-02   1.0658E-01   1.3900E+02   7.6488E+02
+     8    8.0000E+00   1.0666E-02   6.6769E-02   5.8245E+01   7.7353E+02
+     9    9.0000E+00   7.6621E-03   4.7962E-02  -3.9756E+01   7.6494E+02
+
+
+     TOTAL HARMONIC DISTORTION =   7.0636E+01 PERCENT
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM OFFSET =    9.2   
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    9.2000  (    2)    8.4867  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1          -8.487E-03
+
+    TOTAL POWER DISSIPATION   7.81E-02  WATTS
+
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     FOURIER ANALYSIS                 TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM OFFSET =    9.2   
+
+
+******************************************************************************
+
+
+
+FOURIER COMPONENTS OF TRANSIENT RESPONSE V(2)
+
+
+
+ DC COMPONENT =   1.8006E+01
+
+ HARMONIC   FREQUENCY     FOURIER     NORMALIZED     PHASE     NORMALIZED
+    NO         (HZ)      COMPONENT     COMPONENT     (DEG)     PHASE (DEG)
+
+     1    1.0000E+00   1.6047E-01   1.0000E+00  -8.9342E+01   0.0000E+00
+     2    2.0000E+00   8.6416E-02   5.3850E-01  -1.6893E+02   9.7492E+00
+     3    3.0000E+00   5.2243E-02   3.2556E-01   1.1359E+02   3.8161E+02
+     4    4.0000E+00   3.2202E-02   2.0067E-01   2.7026E+01   3.8439E+02
+     5    5.0000E+00   2.5170E-02   1.5685E-01  -6.5698E+01   3.8101E+02
+     6    6.0000E+00   2.2362E-02   1.3935E-01  -1.4699E+02   3.8906E+02
+     7    7.0000E+00   1.7079E-02   1.0643E-01   1.3910E+02   7.6449E+02
+     8    8.0000E+00   1.0714E-02   6.6765E-02   5.8369E+01   7.7310E+02
+     9    9.0000E+00   7.6891E-03   4.7915E-02  -3.9461E+01   7.6462E+02
+
+
+     TOTAL HARMONIC DISTORTION =   7.0593E+01 PERCENT
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM OFFSET =    9.3   
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    9.3000  (    2)    8.5860  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1          -8.586E-03
+
+    TOTAL POWER DISSIPATION   7.99E-02  WATTS
+
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     FOURIER ANALYSIS                 TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM OFFSET =    9.3   
+
+
+******************************************************************************
+
+
+
+FOURIER COMPONENTS OF TRANSIENT RESPONSE V(2)
+
+
+
+ DC COMPONENT =   1.8104E+01
+
+ HARMONIC   FREQUENCY     FOURIER     NORMALIZED     PHASE     NORMALIZED
+    NO         (HZ)      COMPONENT     COMPONENT     (DEG)     PHASE (DEG)
+
+     1    1.0000E+00   1.6120E-01   1.0000E+00  -8.9273E+01   0.0000E+00
+     2    2.0000E+00   8.6734E-02   5.3807E-01  -1.6889E+02   9.6564E+00
+     3    3.0000E+00   5.2459E-02   3.2544E-01   1.1360E+02   3.8142E+02
+     4    4.0000E+00   3.2370E-02   2.0082E-01   2.7089E+01   3.8418E+02
+     5    5.0000E+00   2.5278E-02   1.5682E-01  -6.5537E+01   3.8083E+02
+     6    6.0000E+00   2.2427E-02   1.3913E-01  -1.4685E+02   3.8879E+02
+     7    7.0000E+00   1.7131E-02   1.0627E-01   1.3919E+02   7.6410E+02
+     8    8.0000E+00   1.0761E-02   6.6760E-02   5.8493E+01   7.7268E+02
+     9    9.0000E+00   7.7159E-03   4.7867E-02  -3.9167E+01   7.6429E+02
+
+
+     TOTAL HARMONIC DISTORTION =   7.0551E+01 PERCENT
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM OFFSET =    9.4   
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    9.4000  (    2)    8.6854  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1          -8.685E-03
+
+    TOTAL POWER DISSIPATION   8.16E-02  WATTS
+
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     FOURIER ANALYSIS                 TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM OFFSET =    9.4   
+
+
+******************************************************************************
+
+
+
+FOURIER COMPONENTS OF TRANSIENT RESPONSE V(2)
+
+
+
+ DC COMPONENT =   1.8203E+01
+
+ HARMONIC   FREQUENCY     FOURIER     NORMALIZED     PHASE     NORMALIZED
+    NO         (HZ)      COMPONENT     COMPONENT     (DEG)     PHASE (DEG)
+
+     1    1.0000E+00   1.6192E-01   1.0000E+00  -8.9206E+01   0.0000E+00
+     2    2.0000E+00   8.7053E-02   5.3764E-01  -1.6885E+02   9.5653E+00
+     3    3.0000E+00   5.2676E-02   3.2532E-01   1.1361E+02   3.8123E+02
+     4    4.0000E+00   3.2539E-02   2.0096E-01   2.7152E+01   3.8397E+02
+     5    5.0000E+00   2.5385E-02   1.5678E-01  -6.5379E+01   3.8065E+02
+     6    6.0000E+00   2.2492E-02   1.3891E-01  -1.4671E+02   3.8852E+02
+     7    7.0000E+00   1.7182E-02   1.0612E-01   1.3928E+02   7.6372E+02
+     8    8.0000E+00   1.0809E-02   6.6753E-02   5.8617E+01   7.7226E+02
+     9    9.0000E+00   7.7427E-03   4.7819E-02  -3.8875E+01   7.6398E+02
+
+
+     TOTAL HARMONIC DISTORTION =   7.0509E+01 PERCENT
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM OFFSET =    9.5   
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    9.5000  (    2)    8.7847  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1          -8.785E-03
+
+    TOTAL POWER DISSIPATION   8.35E-02  WATTS
+
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     FOURIER ANALYSIS                 TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM OFFSET =    9.5   
+
+
+******************************************************************************
+
+
+
+FOURIER COMPONENTS OF TRANSIENT RESPONSE V(2)
+
+
+
+ DC COMPONENT =   1.8302E+01
+
+ HARMONIC   FREQUENCY     FOURIER     NORMALIZED     PHASE     NORMALIZED
+    NO         (HZ)      COMPONENT     COMPONENT     (DEG)     PHASE (DEG)
+
+     1    1.0000E+00   1.6264E-01   1.0000E+00  -8.9139E+01   0.0000E+00
+     2    2.0000E+00   8.7373E-02   5.3721E-01  -1.6880E+02   9.4751E+00
+     3    3.0000E+00   5.2892E-02   3.2521E-01   1.1363E+02   3.8104E+02
+     4    4.0000E+00   3.2707E-02   2.0110E-01   2.7215E+01   3.8377E+02
+     5    5.0000E+00   2.5493E-02   1.5674E-01  -6.5220E+01   3.8047E+02
+     6    6.0000E+00   2.2557E-02   1.3869E-01  -1.4657E+02   3.8826E+02
+     7    7.0000E+00   1.7234E-02   1.0596E-01   1.3938E+02   7.6335E+02
+     8    8.0000E+00   1.0855E-02   6.6745E-02   5.8742E+01   7.7185E+02
+     9    9.0000E+00   7.7693E-03   4.7770E-02  -3.8584E+01   7.6366E+02
+
+
+     TOTAL HARMONIC DISTORTION =   7.0467E+01 PERCENT
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM OFFSET =    9.6   
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    9.6000  (    2)    8.8841  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1          -8.884E-03
+
+    TOTAL POWER DISSIPATION   8.53E-02  WATTS
+
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     FOURIER ANALYSIS                 TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM OFFSET =    9.6   
+
+
+******************************************************************************
+
+
+
+FOURIER COMPONENTS OF TRANSIENT RESPONSE V(2)
+
+
+
+ DC COMPONENT =   1.8400E+01
+
+ HARMONIC   FREQUENCY     FOURIER     NORMALIZED     PHASE     NORMALIZED
+    NO         (HZ)      COMPONENT     COMPONENT     (DEG)     PHASE (DEG)
+
+     1    1.0000E+00   1.6336E-01   1.0000E+00  -8.9072E+01   0.0000E+00
+     2    2.0000E+00   8.7692E-02   5.3679E-01  -1.6876E+02   9.3857E+00
+     3    3.0000E+00   5.3108E-02   3.2509E-01   1.1364E+02   3.8086E+02
+     4    4.0000E+00   3.2876E-02   2.0124E-01   2.7278E+01   3.8356E+02
+     5    5.0000E+00   2.5601E-02   1.5671E-01  -6.5062E+01   3.8030E+02
+     6    6.0000E+00   2.2623E-02   1.3848E-01  -1.4643E+02   3.8800E+02
+     7    7.0000E+00   1.7286E-02   1.0581E-01   1.3947E+02   7.6297E+02
+     8    8.0000E+00   1.0903E-02   6.6739E-02   5.8867E+01   7.7144E+02
+     9    9.0000E+00   7.7963E-03   4.7723E-02  -3.8293E+01   7.6335E+02
+
+
+     TOTAL HARMONIC DISTORTION =   7.0426E+01 PERCENT
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM OFFSET =    9.7   
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    9.7000  (    2)    8.9835  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1          -8.983E-03
+
+    TOTAL POWER DISSIPATION   8.71E-02  WATTS
+
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     FOURIER ANALYSIS                 TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM OFFSET =    9.7   
+
+
+******************************************************************************
+
+
+
+FOURIER COMPONENTS OF TRANSIENT RESPONSE V(2)
+
+
+
+ DC COMPONENT =   1.8499E+01
+
+ HARMONIC   FREQUENCY     FOURIER     NORMALIZED     PHASE     NORMALIZED
+    NO         (HZ)      COMPONENT     COMPONENT     (DEG)     PHASE (DEG)
+
+     1    1.0000E+00   1.6409E-01   1.0000E+00  -8.9006E+01   0.0000E+00
+     2    2.0000E+00   8.8012E-02   5.3637E-01  -1.6871E+02   9.2976E+00
+     3    3.0000E+00   5.3325E-02   3.2498E-01   1.1365E+02   3.8067E+02
+     4    4.0000E+00   3.3044E-02   2.0138E-01   2.7341E+01   3.8336E+02
+     5    5.0000E+00   2.5708E-02   1.5667E-01  -6.4904E+01   3.8012E+02
+     6    6.0000E+00   2.2688E-02   1.3827E-01  -1.4630E+02   3.8774E+02
+     7    7.0000E+00   1.7337E-02   1.0566E-01   1.3957E+02   7.6261E+02
+     8    8.0000E+00   1.0949E-02   6.6729E-02   5.8993E+01   7.7104E+02
+     9    9.0000E+00   7.8230E-03   4.7675E-02  -3.8004E+01   7.6305E+02
+
+
+     TOTAL HARMONIC DISTORTION =   7.0385E+01 PERCENT
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM OFFSET =    9.8   
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    9.8000  (    2)    9.0829  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1          -9.083E-03
+
+    TOTAL POWER DISSIPATION   8.90E-02  WATTS
+
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     FOURIER ANALYSIS                 TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM OFFSET =    9.8   
+
+
+******************************************************************************
+
+
+
+FOURIER COMPONENTS OF TRANSIENT RESPONSE V(2)
+
+
+
+ DC COMPONENT =   1.8597E+01
+
+ HARMONIC   FREQUENCY     FOURIER     NORMALIZED     PHASE     NORMALIZED
+    NO         (HZ)      COMPONENT     COMPONENT     (DEG)     PHASE (DEG)
+
+     1    1.0000E+00   1.6481E-01   1.0000E+00  -8.8940E+01   0.0000E+00
+     2    2.0000E+00   8.8332E-02   5.3596E-01  -1.6867E+02   9.2108E+00
+     3    3.0000E+00   5.3542E-02   3.2486E-01   1.1367E+02   3.8049E+02
+     4    4.0000E+00   3.3213E-02   2.0152E-01   2.7404E+01   3.8317E+02
+     5    5.0000E+00   2.5816E-02   1.5664E-01  -6.4748E+01   3.7995E+02
+     6    6.0000E+00   2.2753E-02   1.3805E-01  -1.4616E+02   3.8749E+02
+     7    7.0000E+00   1.7389E-02   1.0551E-01   1.3966E+02   7.6225E+02
+     8    8.0000E+00   1.0996E-02   6.6719E-02   5.9119E+01   7.7064E+02
+     9    9.0000E+00   7.8495E-03   4.7627E-02  -3.7717E+01   7.6275E+02
+
+
+     TOTAL HARMONIC DISTORTION =   7.0345E+01 PERCENT
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM OFFSET =    9.9   
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    9.9000  (    2)    9.1823  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1          -9.182E-03
+
+    TOTAL POWER DISSIPATION   9.09E-02  WATTS
+
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     FOURIER ANALYSIS                 TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM OFFSET =    9.9   
+
+
+******************************************************************************
+
+
+
+FOURIER COMPONENTS OF TRANSIENT RESPONSE V(2)
+
+
+
+ DC COMPONENT =   1.8696E+01
+
+ HARMONIC   FREQUENCY     FOURIER     NORMALIZED     PHASE     NORMALIZED
+    NO         (HZ)      COMPONENT     COMPONENT     (DEG)     PHASE (DEG)
+
+     1    1.0000E+00   1.6554E-01   1.0000E+00  -8.8875E+01   0.0000E+00
+     2    2.0000E+00   8.8652E-02   5.3555E-01  -1.6863E+02   9.1244E+00
+     3    3.0000E+00   5.3758E-02   3.2475E-01   1.1368E+02   3.8031E+02
+     4    4.0000E+00   3.3381E-02   2.0165E-01   2.7468E+01   3.8297E+02
+     5    5.0000E+00   2.5923E-02   1.5660E-01  -6.4593E+01   3.7978E+02
+     6    6.0000E+00   2.2818E-02   1.3784E-01  -1.4602E+02   3.8723E+02
+     7    7.0000E+00   1.7440E-02   1.0535E-01   1.3976E+02   7.6189E+02
+     8    8.0000E+00   1.1043E-02   6.6707E-02   5.9245E+01   7.7025E+02
+     9    9.0000E+00   7.8760E-03   4.7578E-02  -3.7430E+01   7.6245E+02
+
+
+     TOTAL HARMONIC DISTORTION =   7.0304E+01 PERCENT
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM OFFSET =   10    
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)   10.0000  (    2)    9.2816  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1          -9.282E-03
+
+    TOTAL POWER DISSIPATION   9.28E-02  WATTS
+
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     FOURIER ANALYSIS                 TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM OFFSET =   10    
+
+
+******************************************************************************
+
+
+
+FOURIER COMPONENTS OF TRANSIENT RESPONSE V(2)
+
+
+
+ DC COMPONENT =   1.8795E+01
+
+ HARMONIC   FREQUENCY     FOURIER     NORMALIZED     PHASE     NORMALIZED
+    NO         (HZ)      COMPONENT     COMPONENT     (DEG)     PHASE (DEG)
+
+     1    1.0000E+00   1.6626E-01   1.0000E+00  -8.8811E+01   0.0000E+00
+     2    2.0000E+00   8.8974E-02   5.3514E-01  -1.6858E+02   9.0395E+00
+     3    3.0000E+00   5.3975E-02   3.2464E-01   1.1370E+02   3.8013E+02
+     4    4.0000E+00   3.3549E-02   2.0178E-01   2.7531E+01   3.8277E+02
+     5    5.0000E+00   2.6031E-02   1.5657E-01  -6.4438E+01   3.7962E+02
+     6    6.0000E+00   2.2883E-02   1.3763E-01  -1.4588E+02   3.8699E+02
+     7    7.0000E+00   1.7491E-02   1.0520E-01   1.3986E+02   7.6153E+02
+     8    8.0000E+00   1.1089E-02   6.6696E-02   5.9371E+01   7.6986E+02
+     9    9.0000E+00   7.9025E-03   4.7530E-02  -3.7145E+01   7.6215E+02
+
+
+     TOTAL HARMONIC DISTORTION =   7.0264E+01 PERCENT
+
+
+          JOB CONCLUDED
+
+**** 04/06/25 21:04:57 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB3
+
+
+ ****     JOB STATISTICS SUMMARY
+
+ ****     CURRENT STEP                     PARAM OFFSET =   10    
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .92
+

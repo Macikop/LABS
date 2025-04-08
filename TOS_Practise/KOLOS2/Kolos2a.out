@@ -1,0 +1,116 @@
+
+**** 04/07/25 14:39:33 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2A
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+.LIB "EVAL_TOS.LIB"
+
+.PARAM CAP = 520U
+
+V1 VX 0 SIN(0 169.2 60)
+
+RX VX VIN 1P
+
+XTRAFO VIN 0 OUTP 0 OUTN TX_I
+
+D1 OUTP 1 D1N4148
+D2 OUTN 1 D1N4148
+
+C1 1 0 {CAP}
+R1 1 2 191
+*XZENER 0 2 ZENER_I
+
+RL 2 0 150
+
+.TRAN 0 5 4.0 1M
+.STEP LIN PARAM CAP 20M 20M 1M
+.PROBE
+.END
+
+**** 04/07/25 14:39:33 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2A
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D1N4148         
+          IS    2.682000E-09 
+           N    1.836        
+         ISR    1.565000E-09 
+         IKF     .04417      
+          BV  100            
+         IBV  100.000000E-06 
+          RS     .5664       
+          TT   11.540000E-09 
+         CJO    4.000000E-12 
+          VJ     .5          
+           M     .3333       
+
+
+**** 04/07/25 14:39:33 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2A
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CAP =     .02  
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)-366.1E-21  (    2)-161.0E-21  (   VX)    0.0000  (  VIN)    0.0000      
+
+( OUTN)    0.0000  ( OUTP)    0.0000  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V1           0.000E+00
+
+    TOTAL POWER DISSIPATION   0.00E+00  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 04/07/25 14:39:33 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ KOLOS2A
+
+
+ ****     JOB STATISTICS SUMMARY
+
+ ****     CURRENT STEP                     PARAM CAP =     .02  
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .24
+

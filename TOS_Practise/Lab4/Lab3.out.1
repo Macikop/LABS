@@ -1,0 +1,57 @@
+
+**** 04/06/25 22:39:48 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab3
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+.LIB "EVAL.LIB"
+
+.SUBCKT OPAMP IN_P IN_N OUT GND
+
+VOFFSET IN_P 1
+E1 2 GND IN_N 1 1
+RB 2 3 1k
+CB 3 GND 100P
+
+E2 4 GND 3 GND 1
+ROUT OUT 4 15
+
+.ENDS
+
+VP 1 0 0
+VN 2 0 0
+
+R1 3 0 1K
+
+X1 1 2 3 0 OPAMP
+
+.DC VP -0.001 0.001 0.0001
+.PROBE
+
+.END
+
+
+          JOB CONCLUDED
+
+**** 04/06/25 22:39:48 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab3
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =        0.00
+

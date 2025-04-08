@@ -1,0 +1,156 @@
+
+**** 04/06/25 22:13:53 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab2
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+.LIB "EVAL.LIB"
+
+V_P IN_P 0 PULSE(0 10)
+
+VCC VCC 0 15
+VEE 0 VEE 15
+
+XOPAMP IN_P OUT VCC VEE OUT UA741
+
+R1 OUT 0 2K
+C1 OUT 0 100P
+
+.TRAN 0 30U 0 10N
+
+.PROBE
+.END
+
+**** 04/06/25 22:13:53 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab2
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               XOPAMP.dx       
+          IS  800.000000E-18 
+          RS    1            
+
+
+**** 04/06/25 22:13:53 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab2
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               XOPAMP.qx       
+               NPN             
+       LEVEL    1            
+          IS  800.000000E-18 
+          BF   93.75         
+          NF    1            
+          BR    1            
+          NR    1            
+         ISS    0            
+          RE    0            
+          RC    0            
+         CJE    0            
+         VJE     .75         
+         CJC    0            
+         VJC     .75         
+         MJC     .33         
+        XCJC    1            
+         CJS    0            
+         VJS     .75         
+          KF    0            
+          AF    1            
+          CN    2.42         
+           D     .87         
+
+
+**** 04/06/25 22:13:53 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab2
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  OUT) 19.25E-06  (  VCC)   15.0000  (  VEE)  -15.0000  ( IN_P)    0.0000      
+
+(XOPAMP.6)-3.476E-09                  (XOPAMP.7) 23.72E-06                      
+
+(XOPAMP.8) 23.72E-06                  (XOPAMP.9)    0.0000                      
+
+(XOPAMP.10)    -.6077                 (XOPAMP.11)   14.9600                     
+
+(XOPAMP.12)   14.9600                 (XOPAMP.13)    -.5938                     
+
+(XOPAMP.14)    -.5938                 (XOPAMP.53)   14.0000                     
+
+(XOPAMP.54)  -14.0000                 (XOPAMP.90) 89.39E-06                     
+
+(XOPAMP.91)   40.0000                 (XOPAMP.92)  -40.0000                     
+
+(XOPAMP.99)    0.0000                 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_P         -7.972E-08
+    VCC         -1.667E-03
+    VEE         -1.667E-03
+    XOPAMP.vb   -3.476E-14
+    XOPAMP.vc    1.400E-11
+    XOPAMP.ve    1.400E-11
+    XOPAMP.vlim   8.939E-08
+    XOPAMP.vlp  -4.000E-11
+    XOPAMP.vln  -4.000E-11
+
+    TOTAL POWER DISSIPATION   5.00E-02  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 04/06/25 22:13:53 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab2
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .33
+

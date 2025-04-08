@@ -1,0 +1,37 @@
+
+**** 04/06/25 21:15:07 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ LAB4
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+.LIB "EVAL.LIB"
+
+.PARAM AMP = 0
+
+VIN 1 0 AC {AMP}
+R1 1 2 1K
+
+D1 2 3 D1N4148
+V1 3 0 DC 5 
+
+D2 4 2 D1N4148
+V2 0 4 DC 4
+
+.STEP LIN PARAM AMP -8 8 1
+
+.AC LIN 100 0 10
+------------$
+ERROR(ORPSIM-16103): Invalid value
+
+.PROBE
+
+.END
+

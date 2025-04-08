@@ -1,0 +1,171 @@
+
+**** 04/06/25 22:07:28 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab1
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+.LIB "EVAL.LIB"
+
+VCC VCC 0 15
+VEE 0 VEE 15
+
+V_P IN_P 0 0 AC 1
+V_N IN_N 0 0
+
+XOPAMP IN_P IN_N VCC VEE OUT UA741
+
+.DC V_P -0.01 0.01 0.0001
+.AC DEC 10 1HZ 10MEGHZ
+
+.TF V[OUT] V_P
+
+.PROBE
+.END
+
+**** 04/06/25 22:07:28 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab1
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               XOPAMP.dx       
+          IS  800.000000E-18 
+          RS    1            
+
+
+**** 04/06/25 22:07:28 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab1
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               XOPAMP.qx       
+               NPN             
+       LEVEL    1            
+          IS  800.000000E-18 
+          BF   93.75         
+          NF    1            
+          BR    1            
+          NR    1            
+         ISS    0            
+          RE    0            
+          RC    0            
+         CJE    0            
+         VJE     .75         
+         CJC    0            
+         VJC     .75         
+         MJC     .33         
+        XCJC    1            
+         CJS    0            
+         VJS     .75         
+          KF    0            
+          AF    1            
+          CN    2.42         
+           D     .87         
+
+
+**** 04/06/25 22:07:28 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab1
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  OUT)    3.8356  (  VCC)   15.0000  (  VEE)  -15.0000  ( IN_N)    0.0000      
+
+( IN_P)    0.0000  (XOPAMP.6)-362.2E-06                  (XOPAMP.7)    3.8356   
+
+(XOPAMP.8)    3.8356                  (XOPAMP.9)    0.0000                      
+
+(XOPAMP.10)    -.6077                 (XOPAMP.11)   14.9600                     
+
+(XOPAMP.12)   14.9600                 (XOPAMP.13)    -.5938                     
+
+(XOPAMP.14)    -.5938                 (XOPAMP.53)   14.0000                     
+
+(XOPAMP.54)  -14.0000                 (XOPAMP.90) 7.672E-09                     
+
+(XOPAMP.91)   40.0000                 (XOPAMP.92)  -40.0000                     
+
+(XOPAMP.99)    0.0000                 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    VCC         -1.667E-03
+    VEE         -1.667E-03
+    V_P         -7.974E-08
+    V_N         -7.974E-08
+    XOPAMP.vb   -3.622E-09
+    XOPAMP.vc    1.017E-11
+    XOPAMP.ve    1.784E-11
+    XOPAMP.vlim   7.672E-12
+    XOPAMP.vlp  -4.000E-11
+    XOPAMP.vln  -4.000E-11
+
+    TOTAL POWER DISSIPATION   5.00E-02  WATTS
+
+
+
+
+
+
+ ****     SMALL-SIGNAL CHARACTERISTICS
+
+
+      V(OUT)/V_P =  1.992E+05
+
+      INPUT RESISTANCE AT V_P =  9.963E+05
+
+      OUTPUT RESISTANCE AT V(OUT) =  1.517E+02
+
+
+          JOB CONCLUDED
+
+**** 04/06/25 22:07:28 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ Lab1
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .02
+
