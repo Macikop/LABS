@@ -118,10 +118,15 @@ enum Result eHexStringToUInt(char pcStr[], unsigned int *puiValue)
 	
 	if(('0' == pcStr[0]) && ('x' == pcStr[1]) && ('\0' != pcStr[2]))
 	{
-		for(ucCharacterCounter = 2; 6 >= ucCharacterCounter; ucCharacterCounter++)
+		for(ucCharacterCounter = 2; '\0' != pcStr[ucCharacterCounter]; ucCharacterCounter++)
 		{
 			cCurrentCharacter =  pcStr[ucCharacterCounter];
-			if(('A' <= cCurrentCharacter) && ('F' >= cCurrentCharacter))
+			
+			if(6 == ucCharacterCounter)
+			{
+				return ERROR;
+			}
+			else if(('A' <= cCurrentCharacter) && ('F' >= cCurrentCharacter))
 			{
 				*puiValue = (*puiValue << 4) + (cCurrentCharacter - 'A' + 10);
 			}
@@ -129,14 +134,12 @@ enum Result eHexStringToUInt(char pcStr[], unsigned int *puiValue)
 			{
 				*puiValue = (*puiValue << 4) + (cCurrentCharacter - '0');
 			}
-			else if('\0' == cCurrentCharacter)
-			{
-				return OK;
-			}
 			else
+			{
 				return ERROR;
+			}
 		}
-		return ERROR;
+		return OK;
 	}
 	else
 	{
@@ -237,39 +240,25 @@ void DecodeMsg(char *pcString)
 	DecodeTokens();
 }
 
-char acArreyOne[50] = "Hej\0abs";
+char acArreyOne[50] = "Hej\0absaaaaaaaa";
 char acArreyTwo[4];
 enum CompResult eResoults;
 char pcHex[32];
 enum Result eHexResoult;
-unsigned int iHex;
+unsigned int uiHex;
 
 int main()
 {
-	//CopyString(acArreyOne, acArreyTwo);
-	/*
-	eResoults = eCompareString(acArreyOne, acArreyTwo);
-	if(eResoults == EQUAL)
-	{
-		AppendString(acArreyTwo, acArreyOne);
-	}
-	*/
-	/*ReplaceCharactersInString(acArreyOne, 'e', 'w');*/
 	UIntToHexStr(0xAB3D, pcHex);
 	
-	eHexResoult = eHexStringToUInt("", &iHex);
-	eHexResoult = eHexStringToUInt("0x", &iHex);
-	eHexResoult = eHexStringToUInt("0xhej", &iHex);
-	eHexResoult = eHexStringToUInt("23E1", &iHex);
-	eHexResoult = eHexStringToUInt("0xAABCD", &iHex);
-	eHexResoult = eHexStringToUInt("0x12FC", &iHex);
+	//eHexResoult = eHexStringToUInt("", &uiHex);
+	//eHexResoult = eHexStringToUInt("0x", &uiHex);
+	//eHexResoult = eHexStringToUInt("0xhej", &uiHex);
+	//eHexResoult = eHexStringToUInt("23E1", &uiHex);
+	//eHexResoult = eHexStringToUInt("0xAABCD", &uiHex);
+	eHexResoult = eHexStringToUInt("0x12FC", &uiHex);
 	
-	AppendUIntToString(iHex ,acArreyOne);
-	
-	
-	//ucFindTokensInString(acArreyOne);
-	
-	//DecodeMsg("store 0x001c spryciarz");
+	AppendUIntToString(uiHex ,acArreyOne);
 	
 	return 0;
 }

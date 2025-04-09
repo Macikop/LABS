@@ -1,10 +1,12 @@
 #include <LPC21xx.H> 
 
-#define MILISECOND 11996
+#define MILISECOND 11996	
+
 #define LED0_bm 0x00010000
 #define LED1_bm 0x00020000
 #define LED2_bm 0x00040000
 #define LED3_bm 0x00080000
+
 #define S0_bm 0x10
 #define S1_bm 0x40
 #define S2_bm 0x20
@@ -31,7 +33,7 @@ void LedInit()
 
 void KeyboardInit()
 {
-	IO0DIR = IO0DIR & (~S0_bm) & (~S1_bm) & (~S2_bm) & (~S3_bm);
+	IO0DIR = IO0DIR & ~(S0_bm | S1_bm | S2_bm | S3_bm);
 }
 
 void LedOn(unsigned char ucLedIndeks)
@@ -116,14 +118,13 @@ int main()
 		{
 			case BUTTON_1:
 				LedStepRight();
-				Delay(200);
 				break;
 			case BUTTON_2:
 				LedStepLeft();
-				Delay(200);
 				break;
 			default:
 				break;
+			Delay(200);
 		}
 	}
 }
