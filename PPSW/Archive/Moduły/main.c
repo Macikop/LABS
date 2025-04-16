@@ -1,5 +1,3 @@
-#include <LPC21xx.H>
-
 #include "led.h"
 #include "keyboard.h"
 
@@ -24,14 +22,13 @@ int main()
 		{
 			case BUTTON_1:
 				LedStepRight();
-				Delay(200);
 				break;
 			case BUTTON_2:
 				LedStepLeft();
-				Delay(200);
 				break;
 			default:
 				break;
 		}
+		Delay(100);
 	}
 }

@@ -6,7 +6,7 @@
 #define LED2_bm (1<<18)
 #define LED3_bm (1<<19)
 
-void LedInit(void)
+void LedInit()
 {
 	IO1DIR = IO1DIR | LED0_bm | LED1_bm | LED2_bm | LED3_bm;
 	IO1CLR = LED0_bm | LED1_bm | LED2_bm | LED3_bm;
@@ -34,20 +34,21 @@ void LedOn(unsigned char ucLedIndeks)
 	}
 }
 
+enum eStepDirection {LEFT, RIGHT};
+
 void LedStep (enum eStepDirection eDirection)
 {
 	static unsigned int uiLedPosition = 0;
 	
 	if (LEFT == eDirection)
 	{
-		uiLedPosition = (uiLedPosition + 1) % 4;
-		LedOn(uiLedPosition);
+		uiLedPosition = uiLedPosition + 1;
 	}
 	else if (RIGHT == eDirection)
 	{
-		uiLedPosition = (uiLedPosition - 1) % 4;
-		LedOn(uiLedPosition);
+		uiLedPosition = uiLedPosition - 1;
 	}
+	LedOn(uiLedPosition % 4);
 }
 
 void  LedStepLeft(void) 

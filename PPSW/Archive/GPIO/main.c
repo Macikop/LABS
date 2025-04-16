@@ -7,10 +7,10 @@
 #define LED2_bm 0x00040000
 #define LED3_bm 0x00080000
 
-#define S0_bm 0x10
-#define S1_bm 0x40
-#define S2_bm 0x20
-#define S3_bm 0x80
+#define S0_bm 0x00000010
+#define S1_bm 0x00000040
+#define S2_bm 0x00000020
+#define S3_bm 0x00000080
 
 enum KeyboardState {RELASED, BUTTON_0, BUTTON_1, BUTTON_2, BUTTON_3};
 
@@ -59,19 +59,19 @@ void LedOn(unsigned char ucLedIndeks)
 
 enum KeyboardState eKeyboardRead()
 {
-	if ((~IO0PIN) & (S0_bm))
+	if ((IO0PIN & S0_bm) == 0)
 	{
 		return BUTTON_0;
 	}
-	else if((~IO0PIN) & (S1_bm))
+	else if ((IO0PIN & S1_bm) == 0) // 0x40, 0x0 
 	{
 		return BUTTON_1;
 	}
-	else if((~IO0PIN) & (S2_bm))
+	else if ((IO0PIN & S2_bm) == 0) // 0x20, 0x0
 	{
 		return BUTTON_2;
 	}
-	else if ((~IO0PIN) & (S3_bm))
+	else if ((IO0PIN & S3_bm) == 0)
 	{
 		return BUTTON_3;
 	}
@@ -87,14 +87,13 @@ void LedStep (enum eStepDirection eDirection)
 	
 	if (LEFT == eDirection)
 	{
-		uiLedPosition = (uiLedPosition + 1) % 4;
-		LedOn(uiLedPosition);
+		uiLedPosition = uiLedPosition + 1;
 	}
 	else if (RIGHT == eDirection)
 	{
-		uiLedPosition = (uiLedPosition - 1) % 4;
-		LedOn(uiLedPosition);
+		uiLedPosition = uiLedPosition - 1;
 	}
+	LedOn(uiLedPosition % 4);
 }
 
 void  LedStepLeft() 
@@ -124,7 +123,7 @@ int main()
 				break;
 			default:
 				break;
-			Delay(200);
 		}
+		Delay(100);
 	}
 }
