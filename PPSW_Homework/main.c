@@ -270,7 +270,7 @@ unsigned char TokenNumber = 0;
 char cValidString[] = "reset 0x01AB kot";
 char cOnlyDelimiterString[] = "          ";
 char cDelimiterFirstString[] = " load 0x51AF pies";
-char cTwoDelimitersString[] = " store  0x31CB  zebra";
+char cTwoDelimitersString[] = "store  0x31CB  zebra";
 
 
 int main()
