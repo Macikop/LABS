@@ -121,7 +121,6 @@ enum Result eHexStringToUInt(char pcStr[], unsigned int *puiValue)
 		for(ucCharacterCounter = 2; '\0' != pcStr[ucCharacterCounter]; ucCharacterCounter++)
 		{
 			cCurrentCharacter =  pcStr[ucCharacterCounter];
-			
 			if(6 == ucCharacterCounter)
 			{
 				return ERROR;
@@ -172,7 +171,7 @@ unsigned char ucFindTokensInString(char *pcString)
 		switch(eFinderState)
 		{
 			case TOKEN:
-				if (MAX_TOKEN_NR == ucCharacterCounter)
+				if (MAX_TOKEN_NR == ucTokenCounter)
 				{
 					return ucTokenCounter;
 				}
@@ -224,21 +223,21 @@ enum Result eSringToKeyword (char pcStr[], enum KeywordCode *peKeywordCode)
 	return ERROR;
 }
 
-void DecodeTokens() // zmienne nazywaja sie tak samo jak globalne
+void DecodeTokens()
 {
-	unsigned char ucTokenNr;
+	unsigned char ucTokenIndex;
 	
-	enum KeywordCode eDecodedCode;
+	enum KeywordCode eDecodedKeyword;
 	unsigned int uiDecodedNumber;
 	struct Token *spCurrentToken;
 	
-	for(ucTokenNr = 0; MAX_TOKEN_NR > ucTokenNr; ucTokenNr++)
+	for(ucTokenIndex = 0; ucTokenNr > ucTokenIndex; ucTokenIndex++)
 	{
-		spCurrentToken = &asToken[ucTokenNr];
-		if(OK == eSringToKeyword(spCurrentToken->uValue.pcString, &eDecodedCode))
+		spCurrentToken = &asToken[ucTokenIndex];
+		if(OK == eSringToKeyword(spCurrentToken->uValue.pcString, &eDecodedKeyword))
 		{
 			spCurrentToken->eType = KEYWORD;
-			spCurrentToken->uValue.eKeyword = eDecodedCode;
+			spCurrentToken->uValue.eKeyword = eDecodedKeyword;
 		}
 		else if (OK == eHexStringToUInt(spCurrentToken->uValue.pcString, &uiDecodedNumber))
 		{
@@ -254,7 +253,7 @@ void DecodeTokens() // zmienne nazywaja sie tak samo jak globalne
 
 void DecodeMsg(char *pcString)
 {
-	ucFindTokensInString(pcString);
+	ucTokenNr = ucFindTokensInString(pcString);
 	ReplaceCharactersInString(pcString, ' ', '\0');
 	DecodeTokens();
 }
@@ -266,10 +265,20 @@ char pcHex[32];
 enum Result eHexResoult;
 unsigned int uiHex;
 
-char string[] = "reset 0x01AB kot"; 
+unsigned char TokenNumber = 0;
+
+char cValidString[] = "reset 0x01AB kot";
+char cOnlyDelimiterString[] = "          ";
+char cDelimiterFirstString[] = " load 0x51AF pies";
+char cTwoDelimitersString[] = " store  0x31CB  zebra";
+
+
 int main()
 {
-	DecodeMsg(string);
+	DecodeMsg(cValidString);
+	DecodeMsg(cOnlyDelimiterString);
+	DecodeMsg(cDelimiterFirstString);
+	DecodeMsg(cTwoDelimitersString);
 	
 	return 0;
 }
