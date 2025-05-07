@@ -155,38 +155,56 @@ void AppendUIntToString (unsigned int uiValue, char pcDestinationStr[])
 	UIntToHexStr(uiValue, pcDestinationStr + ucCharacterCounter);
 }
 
+enum eTokenFinderState {TOKEN, DELIMITER};
+
 unsigned char ucFindTokensInString(char *pcString)
 {
+	enum eTokenFinderState eFinderState = DELIMITER;
+	
 	unsigned char ucCharacterCounter;
 	unsigned char ucTokenCounter = 0;
-	unsigned char ucDelimiterPosition = 0;
 	
-	for(ucCharacterCounter = 1 ;; ucCharacterCounter++)
+	char cCurrentCharacter;
+	
+	for(ucCharacterCounter = 0 ;; ucCharacterCounter++)
 	{
-		switch(pcString[ucCharacterCounter - 1])
+		cCurrentCharacter = pcString[ucCharacterCounter];
+		switch(eFinderState)
 		{
-			case '\0':
-				if (1 < (ucCharacterCounter - ucDelimiterPosition))
-				{
-					asToken[ucTokenCounter].uValue.pcString = pcString + ucDelimiterPosition;
-				}
-				return ucTokenCounter;
-			case 0x20:
-				if (1 < (ucCharacterCounter - ucDelimiterPosition))
-				{
-					asToken[ucTokenCounter].uValue.pcString = pcString + ucDelimiterPosition;
-					ucTokenCounter++;
-				}
-				ucDelimiterPosition = ucCharacterCounter;
-				break;
-			default:
-			{
-				if (MAX_TOKEN_NR <= ucTokenCounter)
+			case TOKEN:
+				if (MAX_TOKEN_NR == ucCharacterCounter)
 				{
 					return ucTokenCounter;
 				}
+				else if ('\0' == cCurrentCharacter)
+				{
+					return ucTokenCounter;
+				}
+				else if (' ' != cCurrentCharacter)
+				{
+					eFinderState = TOKEN;
+				}
+				else
+				{
+					eFinderState = DELIMITER;
+				}
 				break;
-			}
+			case DELIMITER:
+				if ('\0' == cCurrentCharacter)
+				{
+					return ucTokenCounter;
+				}
+				else if (' ' == cCurrentCharacter)
+				{
+					eFinderState = DELIMITER;
+				}
+				else
+				{
+					eFinderState = TOKEN;
+					asToken[ucTokenCounter].uValue.pcString = pcString + ucCharacterCounter;
+					ucTokenCounter++;
+				}
+				break;
 		}
 	}
 }
@@ -206,9 +224,10 @@ enum Result eSringToKeyword (char pcStr[], enum KeywordCode *peKeywordCode)
 	return ERROR;
 }
 
-void DecodeTokens()
+void DecodeTokens() // zmienne nazywaja sie tak samo jak globalne
 {
 	unsigned char ucTokenNr;
+	
 	enum KeywordCode eDecodedCode;
 	unsigned int uiDecodedNumber;
 	struct Token *spCurrentToken;
@@ -247,18 +266,10 @@ char pcHex[32];
 enum Result eHexResoult;
 unsigned int uiHex;
 
+char string[] = "reset 0x01AB kot"; 
 int main()
 {
-	UIntToHexStr(0xAB3D, pcHex);
-	
-	//eHexResoult = eHexStringToUInt("", &uiHex);
-	//eHexResoult = eHexStringToUInt("0x", &uiHex);
-	//eHexResoult = eHexStringToUInt("0xhej", &uiHex);
-	//eHexResoult = eHexStringToUInt("23E1", &uiHex);
-	//eHexResoult = eHexStringToUInt("0xAABCD", &uiHex);
-	eHexResoult = eHexStringToUInt("0x12FC", &uiHex);
-	
-	AppendUIntToString(uiHex ,acArreyOne);
+	DecodeMsg(string);
 	
 	return 0;
 }

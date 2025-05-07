@@ -2,8 +2,8 @@
 #include "keyboard.h"
 
 #define S0_bm (1<<4)
-#define S1_bm (1<<5)
-#define S2_bm (1<<6)
+#define S1_bm (1<<6)
+#define S2_bm (1<<5)
 #define S3_bm (1<<7)
 
 void KeyboardInit()
