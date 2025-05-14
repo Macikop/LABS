@@ -14,7 +14,7 @@ void Delay(int iTime)
 int main()
 {
 	LedInit();
-	InitTimer0();
+	//InitTimer0();
 	InitTimer0Match0(250000);
 	
 	while(1)

@@ -55,7 +55,15 @@ int main ()
 {
 	LedInit();
 	KeyboardInit();
+	int a = 0;
 	
-	Timer0Interrupts_Init(100000, &Automat);
-	while(1){}
+	Timer0Interrupts_Init(20000, &Automat);
+	while(1)
+	{
+		a++;
+		a++;
+		a++;
+		a++;
+		a++;
+	}
 }
