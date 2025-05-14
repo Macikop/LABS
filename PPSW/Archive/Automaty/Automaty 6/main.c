@@ -13,9 +13,11 @@ void Delay(int iTime)
 
 int main()
 {
-	enum eLedState {LED_STOP, LED_LEFT, LED_RIGHT};
+	enum eLedState {LED_STOP, LED_LEFT, LED_RIGHT, LED_WIPER};
 	enum eLedState eLedState = LED_STOP;
 	enum KeyboardState eKeyboardState;
+
+	unsigned char ucStepCounter = 0;
 
 	LedInit();
 	KeyboardInit();
@@ -44,6 +46,11 @@ int main()
 				{
 					eLedState = LED_STOP;
 				}
+				else if(BUTTON_3 == eKeyboardState)
+				{
+					ucStepCounter = 0;
+					eLedState = LED_WIPER;
+				}
 				else
 				{
 					eLedState = LED_LEFT;
@@ -59,6 +66,25 @@ int main()
 				{
 					eLedState = LED_RIGHT;
 					LedStepRight();
+				}
+				break;
+			case LED_WIPER:
+				if (5 == ucStepCounter)
+				{
+					eLedState = LED_RIGHT;
+				}
+				else 
+				{
+					if (1 == (ucStepCounter % 2))
+					{
+						LedStepRight();
+					}
+					else
+					{
+						LedStepLeft();
+					}
+					ucStepCounter++;
+					eLedState = LED_WIPER;
 				}
 				break;
 		}
