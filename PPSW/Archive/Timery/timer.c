@@ -9,12 +9,14 @@
 
 #define INTERUPT_FLAG_MR0 (1<<0)
 
+//test na sprzecie potrzebny, robione w pociagu
+
 void InitTimer0()
 {
 	T0TCR = T0TCR | TIMER_ENABLE;
 }
 
-void WaitOnTimer0(unsigned int uiTime) // uiTime in us
+void WaitOnTimer0(unsigned int uiTime) // uiTime in ms
 {	
 	T0TCR = T0TCR | TIMER_RESET;
 	T0TCR = T0TCR & (~TIMER_RESET);
