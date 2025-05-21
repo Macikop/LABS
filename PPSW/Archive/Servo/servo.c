@@ -5,7 +5,9 @@
 
 #define DEFECTOR_bm (1<<10)
 
-enum eServoState {CALLIB, IDLE, IN_PROGRESS};
+enum eServoState {CALLIB, IDLE, IN_PROGRESS, OFFSET};
+
+unsigned char ucOffset = 12;
 
 struct Servo
 {
@@ -59,9 +61,12 @@ void Automat()
 			{
 				sServo.uiDesiredPosition = 0;
 				sServo.uiCurrentPosition = 0;
-				sServo.eState = IDLE;
+				sServo.eState = OFFSET;
 			}
-			
+			break;
+		case OFFSET:
+			sServo.uiDesiredPosition = sServo.uiDesiredPosition + ucOffset;
+		
 			break;
 		case IDLE:
 			if (sServo.uiCurrentPosition != sServo.uiDesiredPosition)

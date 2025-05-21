@@ -50,14 +50,15 @@ void Automat()
 	}
 
 }
+int a = 0;
 
 int main ()
 {
+	
 	LedInit();
 	KeyboardInit();
-	int a = 0;
 	
-	Timer0Interrupts_Init(20000, &Automat);
+	Timer0Interrupts_Init(10, &Automat);
 	while(1)
 	{
 		a++;
