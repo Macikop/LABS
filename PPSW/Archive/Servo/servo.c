@@ -7,7 +7,7 @@
 
 enum eServoState {CALLIB, IDLE, IN_PROGRESS, OFFSET};
 
-unsigned char ucOffset = 12;
+unsigned char ucOffsetCounter = 12;
 
 struct Servo
 {
@@ -65,8 +65,17 @@ void Automat()
 			}
 			break;
 		case OFFSET:
-			sServo.uiDesiredPosition = sServo.uiDesiredPosition + ucOffset;
-		
+			if (12 > ucOffsetCounter)
+			{
+				LedStepRight();
+				sServo.eState = OFFSET;
+			}
+			else
+			{
+				sServo.uiDesiredPosition = 0;
+				sServo.uiCurrentPosition = 0;
+				sServo.eState = IDLE;
+			}
 			break;
 		case IDLE:
 			if (sServo.uiCurrentPosition != sServo.uiDesiredPosition)
