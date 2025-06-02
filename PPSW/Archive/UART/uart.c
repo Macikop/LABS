@@ -1,5 +1,4 @@
 #include <LPC210X.H>
-#include "uart.h"
 
 /************ UART ************/
 // U0LCR Line Control Register
@@ -23,17 +22,8 @@
 // VICVectCntlx Vector Control Registers
 #define mIRQ_SLOT_ENABLE                           0x00000020
 
-struct RecieverBuffer
-{ 
-char cData[RECIEVER_SIZE];
-unsigned char ucCharCtr;
-enum eRecieverStatus eStatus;
-};
-
 ////////////// Zmienne globalne ////////////
 char cOdebranyZnak;
-
-struct RecieverBuffer sReciverBuffer;
 
 
 ///////////////////////////////////////////
@@ -69,24 +59,6 @@ void UART_InitWithInt(unsigned int uiBaudRate)
    // INT
    VICVectAddr2  = (unsigned long) UART0_Interrupt;             // set interrupt service routine address
    VICVectCntl2  = mIRQ_SLOT_ENABLE | VIC_UART0_CHANNEL_NR;     // use it for UART 0 Interrupt
-   VICIntEnable |= (0x1 << VIC_UART0_CHANNEL_NR);  							// Enable UART 0 Interrupt Channel
-	
-	sReciverBuffer.eStatus = EMPTY;
+   VICIntEnable |= (0x1 << VIC_UART0_CHANNEL_NR);               // Enable UART 0 Interrupt Channel
 }
 
-void Reciever_PutCharacterToBuffer(char cCharacter)
-{
-	if(sReciverBuffer.ucCharCtr == RECIEVER_SIZE)
-	{
-		if(TERMINATOR == cCharacter)
-	{
-		sReciverBuffer.cData[sReciverBuffer.ucCharCtr] = 0;
-		sReciverBuffer.eStatus = READY;
-	}
-	else
-	{
-		sReciverBuffer.cData[sReciverBuffer.ucCharCtr] = cCharacter;
-	}
-	sReciverBuffer.ucCharCtr++;
-	}
-}
