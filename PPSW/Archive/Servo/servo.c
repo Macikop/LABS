@@ -45,6 +45,7 @@ void ServoCallib(void)
 void ServoGoTo(unsigned int uiPosition)
 {
 	sServo.uiDesiredPosition = uiPosition;
+	while(sServo.uiDesiredPosition != sServo.uiCurrentPosition) {}
 }
 
 void Automat()
@@ -117,5 +118,7 @@ void ServoInit(unsigned int uiServoFrequency) // f in Hz
 	
 	Timer0Interrupts_Init(1000000 / uiServoFrequency, &Automat);
 	sServo.eState = CALLIB;
+	
+	while(IDLE != sServo.eState) {}
 }
 

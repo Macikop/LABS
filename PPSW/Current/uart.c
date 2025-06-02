@@ -27,7 +27,8 @@ char cOdebranyZnak;
 
 
 ///////////////////////////////////////////
-__irq void UART0_Interrupt (void) {
+__irq void UART0_Interrupt (void) 
+{
    // jesli przerwanie z odbiornika (Rx)
    
    unsigned int uiCopyOfU0IIR=U0IIR; // odczyt U0IIR powoduje jego kasowanie wiec lepiej pracowac na kopii
@@ -46,8 +47,8 @@ __irq void UART0_Interrupt (void) {
 }
 
 ////////////////////////////////////////////
-void UART_InitWithInt(unsigned int uiBaudRate){
-
+void UART_InitWithInt(unsigned int uiBaudRate)
+{
    // UART0
    PINSEL0 = PINSEL0 | 0x05;                                     // ustawic pina na odbiornik uart0
    U0LCR  |= m8BIT_UART_WORD_LENGTH | mDIVISOR_LATCH_ACCES_BIT; // dlugosc slowa, DLAB = 1
