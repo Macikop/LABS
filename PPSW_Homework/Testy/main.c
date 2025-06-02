@@ -56,17 +56,17 @@ void TestOf_eCompareString()
 
 void TestOf_AppendString()
 {
-    char cString[] = "Test AppendString";
-    char cFirst_Part[30] = "Test ";
-    char cSecond_Part[] = "AppendString";
+    char pcString[] = "Test AppendString";
+    char pcFirst_Part[30] = "Test ";
+    char pcSecond_Part[] = "AppendString";
     
     printf("\nAppendString\n");
     
     printf("Test 1 - ");
     
-    AppendString(cSecond_Part, cFirst_Part);
+    AppendString(pcSecond_Part, pcFirst_Part);
     //czy łączy łańcuchy znakowe
-    if(EQUAL == eCompareString(cFirst_Part, cString)) printf("OK\n"); else printf("Error\n");
+    if(EQUAL == eCompareString(pcFirst_Part, pcString)) printf("OK\n"); else printf("Error\n");
 }
 
 void TestOf_ReplaceCharactersInString()
@@ -262,12 +262,10 @@ void TestOf_DecodeMsg()
 int main()
 {
     printf("\n\nTEST FUNKCJI OPERACJI NA STRINGACH\n\n");
-    
     TestOf_CopyString();
     TestOf_eCompareString();
     TestOf_AppendString();
     TestOf_ReplaceCharactersInString();
-    
     
     printf("\n\nTEST FUNKCJI KONWERSJI STRINGÓW\n\n");
     TestOf_UIntToHexStr();
@@ -280,6 +278,5 @@ int main()
     TestOf_DecodeTokens();
     TestOf_DecodeMsg();
     
-
     return 0;
 }

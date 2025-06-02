@@ -8,6 +8,9 @@ int main ()
 	KeyboardInit();
 	ServoInit(50);
 	
+	ServoGoTo(24);
+	ServoGoTo(12);
+	
 	while(1)
 	{
 		eKeyboard = eKeyboardRead();
