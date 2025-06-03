@@ -433,11 +433,6 @@
               <FilePath>.\timer_interrupts.c</FilePath>
             </File>
             <File>
-              <FileName>uart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\uart.c</FilePath>
-            </File>
-            <File>
               <FileName>servo.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\servo.c</FilePath>
@@ -481,6 +476,11 @@
               <FileName>konwersje.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\konwersje.h</FilePath>
+            </File>
+            <File>
+              <FileName>uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\uart.c</FilePath>
             </File>
           </Files>
         </Group>

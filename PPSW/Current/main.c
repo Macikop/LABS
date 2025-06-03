@@ -1,60 +1,95 @@
 #include "uart.h"
-#include "led.h"
-#include "keyboard.h"
-#include "servo.h"
+#include "timer_interrupts.h"
+#include "konwersje.h"
+#include "stringi.h"
+#include "dekodowanie.h"
 
-extern char cOdebranyZnak;
+char pcRecivedString[RECIEVER_SIZE];
+
+struct Watch { 
+	unsigned char ucMinutes, ucSecconds; 
+	unsigned char fSeccondsValueChanged, fMinutesValueChanged;
+};
+
+struct Watch sWatch;
+
+void WatchUpdate()
+{
+	sWatch.ucSecconds++;
+	sWatch.fSeccondsValueChanged = 1;
+	
+	if(60 == sWatch.ucSecconds)
+	{
+		sWatch.ucSecconds = 0;
+		sWatch.ucMinutes++;
+		sWatch.fMinutesValueChanged = 1;
+	}
+}
+
+unsigned char fCalcValueChanged = 0;
+unsigned int uiRecivedNumber = 0;
 
 int main ()
 {	
-	unsigned char ucSteppCounter = 0;
-	UART_InitWithInt(9600);
-	KeyboardInit();
-	ServoInit(50);
+	sWatch.ucMinutes = 0;
+	sWatch.ucSecconds = 0;
+	sWatch.fSeccondsValueChanged = 0;
+	sWatch.fMinutesValueChanged = 0;
 	
-	while(1) 
-	{		
-		switch (cOdebranyZnak)
+	Timer0Interrupts_Init(100000, WatchUpdate);
+	UART_InitWithInt(9600);
+	
+	while(1)
+	{
+		char pcSec[25] = "sec ";
+		char pcMin[25] = "min ";
+		char pcCalc[25] = "calc ";
+		
+		if (READY == eReciever_GetStatus())
 		{
-			case '1':
-				ucSteppCounter = (ucSteppCounter + 1) % 4;
-				ServoGoTo(12 * ucSteppCounter);
-				break;
-			case '2':
-				ucSteppCounter = 2;
-				ServoGoTo(24);
-				break;
-			case '3':
-				ucSteppCounter = 3;
-				ServoGoTo(36);
-				break;
-			case 'c':
-				ucSteppCounter = 0;
-				ServoCallib();
-				break;
+			Reciever_GetStringCopy(pcRecivedString);
+			DecodeMsg(pcRecivedString);
+			
+			if((2 >= ucTokenNr) && (KEYWORD == asToken[0].eType))
+			{
+				if (CALC == asToken[0].uValue.eKeyword)
+				{
+					if(NUMBER == asToken[1].eType)
+					{
+						uiRecivedNumber = asToken[1].uValue.uiNumber;
+						fCalcValueChanged = 1;
+					}
+				}
+			}
 		}
 		
-		if (cOdebranyZnak != '\0')
+		if(FREE == Transmiter_GetStatus())
 		{
-			cOdebranyZnak = '\0';
-		}
-		
-		switch(eKeyboardRead())
-		{
-			case BUTTON_0:
-				ServoCallib();
-				break;
-			case BUTTON_1:
-				ServoGoTo(12);
-				break;
-			case BUTTON_2:
-				ServoGoTo(24);
-				break;
-			case BUTTON_3:
-				ServoGoTo(36);
-				break;
-			default:
-				break;
+			if(1 == fCalcValueChanged)
+			{
+				AppendUIntToString(2 * uiRecivedNumber , pcCalc);
+				Transmiter_SendString(pcCalc);
+				fCalcValueChanged = 0;
+			}
+			else if(1 == sWatch.fMinutesValueChanged)
+			{
+				AppendUIntToString(sWatch.ucSecconds, pcSec);
+				sWatch.fSeccondsValueChanged = 0;
+				
+				AppendUIntToString(sWatch.ucMinutes, pcMin);
+				sWatch.fMinutesValueChanged = 0;
+				
+				AppendString(" ", pcSec);
+				AppendString(pcMin, pcSec);
+				
+				Transmiter_SendString(pcSec);
+			}
+			else if(1 == sWatch.fSeccondsValueChanged)
+			{
+				AppendUIntToString(sWatch.ucSecconds, pcSec);
+				sWatch.fSeccondsValueChanged = 0;
+				Transmiter_SendString(pcSec);
+			}
 		}
 	}
 }
