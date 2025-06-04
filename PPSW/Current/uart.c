@@ -38,20 +38,16 @@ void Reciever_PutCharacterToBuffer(char cCharacter)
 	{
 		sReciverBuffer.eStatus = OVERFLOW;
 	}
+	else if(TERMINATOR == cCharacter)
+	{
+		sReciverBuffer.cData[sReciverBuffer.ucCharCtr] = '\0';
+		sReciverBuffer.eStatus = READY;
+	}
 	else
 	{
-		if(TERMINATOR == cCharacter)
-		{
-			sReciverBuffer.cData[sReciverBuffer.ucCharCtr] = '\0';
-			sReciverBuffer.eStatus = READY;
-		}
-		else
-		{
-			sReciverBuffer.cData[sReciverBuffer.ucCharCtr] = cCharacter;
-		}
+		sReciverBuffer.cData[sReciverBuffer.ucCharCtr] = cCharacter;
+		sReciverBuffer.ucCharCtr++;
 	}
-	sReciverBuffer.ucCharCtr++;
-	
 }
 
 char Transmiter_GetCharacterFromBuffer(void)
@@ -66,7 +62,6 @@ char Transmiter_GetCharacterFromBuffer(void)
 			cCurrentCharacter = TERMINATOR;
 			sTransmiterBuffer.fLastCharacter = 1;
 		}
-	
 		sTransmiterBuffer.ucCharCtr++;		
 	}
 	else

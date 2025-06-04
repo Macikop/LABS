@@ -8,7 +8,7 @@ int main ()
 {	
 	UART_InitWithInt(9600);
 	ServoInit(50);
-		
+	
 	while(1)
 	{
 		if (READY == eReciever_GetStatus())

@@ -29,6 +29,9 @@ void WatchUpdate()
 unsigned char fCalcValueChanged = 0;
 unsigned int uiRecivedNumber = 0;
 
+unsigned char fMessageReady = 0;
+
+
 int main ()
 {	
 	sWatch.ucMinutes = 0;
@@ -37,10 +40,11 @@ int main ()
 	sWatch.fMinutesValueChanged = 0;
 	
 	Timer0Interrupts_Init(1000000, WatchUpdate);
-	UART_InitWithInt(9600);
+	UART_InitWithInt(115200);
 	
 	while(1)
 	{
+		char pcMessage[TRANSMITER_SIZE] = "";
 		char pcSec[25] = "sec ";
 		char pcMin[25] = "min ";
 		char pcCalc[25] = "calc ";
@@ -50,7 +54,7 @@ int main ()
 			Reciever_GetStringCopy(pcRecivedString);
 			DecodeMsg(pcRecivedString);
 			
-			if((2 >= ucTokenNr) && (KEYWORD == asToken[0].eType))
+			if((0 != ucTokenNr) && (KEYWORD == asToken[0].eType))
 			{
 				switch(asToken[0].uValue.eKeyword)
 				{
@@ -61,15 +65,30 @@ int main ()
 							fCalcValueChanged = 1;
 						}
 						break;
+					case ID:
+							CopyString("AGH MTM SERVO", pcMessage);
+							fMessageReady = 1;
+						break;
 					default:
 						break;
 				}
+			}
+			else
+			{
+				CopyString("unknown command", pcMessage);
+				fMessageReady = 1;
 			}
 		}
 		
 		if(FREE == Transmiter_GetStatus())
 		{
-			if(1 == fCalcValueChanged)
+			if(1 == fMessageReady)
+			{
+				AppendString("\n", pcMessage);
+				Transmiter_SendString(pcMessage);
+				fMessageReady = 0;
+			}
+			else if(1 == fCalcValueChanged)
 			{
 				AppendUIntToString(2 * uiRecivedNumber , pcCalc);
 				AppendString("\n", pcCalc);
@@ -77,18 +96,13 @@ int main ()
 				fCalcValueChanged = 0;
 			}
 			else if(1 == sWatch.fMinutesValueChanged)
-			{
-				AppendUIntToString(sWatch.ucSecconds, pcSec);
-				sWatch.fSeccondsValueChanged = 0;
-				
+			{				
 				AppendUIntToString(sWatch.ucMinutes, pcMin);
 				sWatch.fMinutesValueChanged = 0;
 				
-				AppendString(" ", pcSec);
-				AppendString(pcMin, pcSec);
-				AppendString("\n", pcSec);
+				AppendString("\n", pcMin);
 				
-				Transmiter_SendString(pcSec);
+				Transmiter_SendString(pcMin);
 			}
 			else if(1 == sWatch.fSeccondsValueChanged)
 			{
@@ -100,3 +114,4 @@ int main ()
 		}
 	}
 }
+// id, unnown command
