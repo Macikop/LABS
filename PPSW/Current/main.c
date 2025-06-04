@@ -36,7 +36,7 @@ int main ()
 	sWatch.fSeccondsValueChanged = 0;
 	sWatch.fMinutesValueChanged = 0;
 	
-	Timer0Interrupts_Init(100000, WatchUpdate);
+	Timer0Interrupts_Init(1000000, WatchUpdate);
 	UART_InitWithInt(9600);
 	
 	while(1)
@@ -52,13 +52,17 @@ int main ()
 			
 			if((2 >= ucTokenNr) && (KEYWORD == asToken[0].eType))
 			{
-				if (CALC == asToken[0].uValue.eKeyword)
+				switch(asToken[0].uValue.eKeyword)
 				{
-					if(NUMBER == asToken[1].eType)
-					{
-						uiRecivedNumber = asToken[1].uValue.uiNumber;
-						fCalcValueChanged = 1;
-					}
+					case CALC:
+						if(NUMBER == asToken[1].eType)
+						{
+							uiRecivedNumber = asToken[1].uValue.uiNumber;
+							fCalcValueChanged = 1;
+						}
+						break;
+					default:
+						break;
 				}
 			}
 		}
@@ -68,6 +72,7 @@ int main ()
 			if(1 == fCalcValueChanged)
 			{
 				AppendUIntToString(2 * uiRecivedNumber , pcCalc);
+				AppendString("\n", pcCalc);
 				Transmiter_SendString(pcCalc);
 				fCalcValueChanged = 0;
 			}
@@ -81,6 +86,7 @@ int main ()
 				
 				AppendString(" ", pcSec);
 				AppendString(pcMin, pcSec);
+				AppendString("\n", pcSec);
 				
 				Transmiter_SendString(pcSec);
 			}
@@ -88,6 +94,7 @@ int main ()
 			{
 				AppendUIntToString(sWatch.ucSecconds, pcSec);
 				sWatch.fSeccondsValueChanged = 0;
+				AppendString("\n", pcSec);
 				Transmiter_SendString(pcSec);
 			}
 		}
