@@ -103,7 +103,5 @@ void ServoInit(unsigned int uiServoFrequency) // f in Hz
 	
 	Timer0Interrupts_Init(1000000 / uiServoFrequency, &Automat);
 	sServo.eState = CALLIB;
-	
-	while(IDLE != sServo.eState) {}
 }
 
