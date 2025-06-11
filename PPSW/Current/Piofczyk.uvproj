@@ -482,6 +482,11 @@
               <FileType>5</FileType>
               <FilePath>.\konwersje.h</FilePath>
             </File>
+            <File>
+              <FileName>adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\adc.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
